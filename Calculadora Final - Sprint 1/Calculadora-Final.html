@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - SiloTech</title>
+</head>
+
+<body>
+    <div id="ronaldo">
+     <h1>Calculadora de Capacidade de Armazenamento - SilosTech </h1>
+     <h4>Estime o volume de grãos armazenado a partir da altura medida pelo sensor</h4>
+     <p>Estamos utilizando PI no valor de 3,14 para o cálculo da área</p>
+        
+        <h3>Calculadora Área Silo</h3>
+
+
+        <div>
+
+            <input type="text" placeholder="Insira a altura total" id="ipt_alturaTotal"> Altura total do silo: <br>
+            <img src="../img/vista_lateral_altura_silo.png" alt="Vista lateral do silo mostrando a altura total fixa"
+                style="width: 500px;">
+        </div>
+
+        <div>
+
+            <input type="text" placeholder="Insira a altura medida" id="ipt_medidaSilo"> Altura medida pelo sensor:<br>
+            <img src="../img/sensor_medindo_silo_topo.png"
+                alt="Sensor fixado no topo do silo medindo a distância até o grão" style="width: 500px;">
+        </div>
+
+        <div>
+            <input type="text" placeholder="Insira o raio" id="ipt_raioCilindro"> Raio Cilindro do Silo:<br>
+            <img src="../img/vista_de_cima_raio_silo.png"
+                alt="Vista de cima do silo mostrando o raio, do centro até a borda" style="width: 500px;">
+        </div>
+
+        <br>
+        <button onclick="calcularVolume()">Calcular volume</button>
+        <span id="span_calculoVolume"></span>
+
+    </div>
+
+
+
+
+    <br>
+    </div>
+
+    <div id="div_volumeFinanceiro">
+        <h3> Calculo Prejuizo M³</h3>
+
+        <input type="text" placeholder="Insira o preço do grão" id="ipt_precom3"> <span>Preço do m³:</span><br>
+
+        <input type="text" placeholder="Insira suposta porcentagem de perda" id="ipt_porcentagemPerdam3">
+        <span>Porcentagem de perda:</span><br>
+        <button onclick="volumeFinanceiro()">Calcular prejuizo</button> <br>
+
+        <span id="span_calculoPrejuizoM3"></span>
+
+        
+    <div id="div_otimizaçãoEspaço">
+        <h3> Calculo Otimização de Espaço</h3>
+        <button onclick="otimizaçãoEspaço()">Capacidade recuperada</button> <br>
+        <span id="span_capacidadeRecuperada"></span>
+    </div>
+
+    </div>
+
+
+
+
+
+    <h1> Calculadora Financeira - SilosTech </h1>
+    <h4>Compare o custo da verificação manual com a economia do monitoramento remoto</h4>
+    <p>Custo por sensor: <b>R$ 350</b></p>
+    <p>Custo da instalação: <b>R$ 200</b></p>
+    <p>Custo da Taxa Mensal:<b> R$ 300 fixos + R$ 100 por silo</p>
+
+    
+        <h3>Custo do nosso projeto</h3>
+
+        <input type="text" id="ipt_qtdSilos" placeholder="ex: 20" />
+        Quantidade de silos.
+        <br />
+
+        <input type="text" id="ipt_alturaSensor" placeholder="ex: 5" />
+        Altura do silo, em metros.
+        <br />
+
+        <button onclick="calcularCustoProjeto()">Calcular projeto</button>
+
+        <div id="exibir_custoProjeto"></div>
+
+
+
+    <h3>Economia por escala utilizando monitoramento remoto </h3>
+    <input type="text" id="ipt_custo_deslocamento" placeholder="custo total"> Custo de deslocamento por visita a um silo, em reais (R$). <br>
+    <input type="text" id="ipt_visitas_evitadas" placeholder="todos os silos"> Visitas evitadas por silo por mês. <br>
+    <button onclick="calcularEscala()">calcular</button>
+    <div id="exibir_escala"></div>
+
+
+
+
+    <h3>Simulação de Economia Anual</h2>
+        <p>A economia anual toma como base o custo do projeto estimado na simulação anterior. Tomando como base o custo do projeto calculado antes </p>
+
+    <span>Capacidade Armazenada (toneladas)</span><br>
+    <input placeholder="ex: 1200" type="text" id="ipt_capacidade"><br>
+
+    <span>Taxa de Perda Média Comum (% ao ano)</span><br>
+    <input placeholder="ex: 3.5" type="text" id="ipt_taxaComum"><br>
+
+    <span>Taxa de Perda com Tecnologia SiloTech (% ao ano)</span><br>
+    <input placeholder="ex: 0.5" type="text" id="ipt_taxaSiloTech"><br>
+
+    <span>Preço médio por tonelada (R$)</span><br>
+    <input placeholder="ex: 1350" type="text" id="ipt_preco"><br>
+
+    <button onclick="calcularEconomia()">Calcular economia</button>
+    <div id="mensagem"></div>
+
+
+
+    </body>
+
+</html>
+
+<script>
+
+    let economiaVerificacao = 0;
+    let economiaTransbordamento = 0;
+    let economiaEscala = 0;
+    let economiaMensalTotal = 0;
+    let volumeTotal = 0
+    let volumeOcupado = 0
+    let valorMetro3 = 0
+    let quantidadeSilos = 0;
+    let custoVerificacaoSilo = 0;
+    let verificacoesMes = 0;
+
+
+    let custoPorSensor = 350;
+    let taxaInstalacao = 200;
+
+    let investimentoInicial = 0;
+    let custoMensalProjeto = 0;
+
+    function calcularVerificacao() {
+
+        let custoHora = Number(ipt_custo_hora.value);
+        let horasMedicao = Number(ipt_horas_medicao.value);
+        let medicoesMes = Number(ipt_medicoes_mes.value);
+        let custoManutencao = Number(ipt_custo_manutencao.value);
+
+        let custoManualMensal = custoHora * horasMedicao * medicoesMes;
+        economiaVerificacao = custoManualMensal - custoManutencao;
+
+        exibir_verificacao.innerHTML = `Economia na verificação de estoque (mensal): R$ ${economiaVerificacao} <br>`;
+    };
+
+
+    function calcularEscala() {
+
+   
+        let custoDeslocamento = Number(ipt_custo_deslocamento.value);
+        let visitasEvitadas = Number(ipt_visitas_evitadas.value);
+
+        economiaEscala = quantidadeSilos * custoDeslocamento * visitasEvitadas;
+
+        exibir_escala.innerHTML = `Economia por monitoramento remoto (mensal): R$ ${economiaEscala} <br>`;
+    };
+
+    function calcularEconomiaTotal() {
+
+        economiaMensalTotal = economiaVerificacao + economiaTransbordamento + economiaEscala;
+
+        exibir_economia_total.innerHTML = `Economia mensal total: R$ ${economiaMensalTotal} <br>
+        `;
+    };
+
+    function calcularPayback() {
+
+        
+        let paybackMeses = investimentoInicial / economiaEscala;
+        let paybackDias = paybackMeses * 30.44; // média de dias por mês
+
+        exibir_payback.innerHTML = `Payback do projeto: ${paybackDias.toFixed(1)} dias (economia mensal usada: R$ ${economiaEscala}) <br>`;
+    }
+
+    function calcularAnual() {
+
+       
+        let economiaAnual = (economiaEscala * 12).toFixed(2);
+
+        exibir_anual.innerHTML = `Economia projetada em 1 ano: R$ ${economiaAnual} <br>`
+    };
+
+
+    function calcularVolume() {
+        
+        let alturaTotal = Number(ipt_alturaTotal.value);
+        let alturaMedidaSilo = Number(ipt_medidaSilo.value);
+        let raioCilindro = Number(ipt_raioCilindro.value);
+        let valorPi = 3.14;
+
+        let alturaOcupada = alturaTotal - alturaMedidaSilo;
+        let areaBase = valorPi * (raioCilindro * raioCilindro);
+        volumeTotal = areaBase * alturaTotal;
+        volumeOcupado = areaBase * alturaOcupada;
+        let porcentagemVolumeOcupado = (volumeOcupado / volumeTotal) * 100;
+
+        span_calculoVolume.innerHTML = `Volume total: ${volumeTotal.toFixed(2)} m³.<br> Volume ocupado: ${volumeOcupado.toFixed(2)} m³.<br> O volume ocupado é de ${porcentagemVolumeOcupado.toFixed(2)}%. <br>`
+
+        if (porcentagemVolumeOcupado < 75) {
+            span_calculoVolume.innerHTML += `<span style="color: green;"> Silo com quantidade tranquila, abaixo de 75%. </span>`
+        } else if (porcentagemVolumeOcupado < 98) {
+            span_calculoVolume.innerHTML += `<span style="color: yellow; background-color: black;"> Silo quase cheio. </span>`
+        } else {
+            span_calculoVolume.innerHTML += `<span style="color: red;"> Silo lotado. </span>`
+        }
+    }
+
+    function volumeFinanceiro() {
+
+        valorMetro3 = Number(ipt_precom3.value);
+        let porcentagemPrejuizo = Number(ipt_porcentagemPerdam3.value);
+        let valorTotalEstocado = valorMetro3 * volumeOcupado;
+        let calculoPrejuizo = valorTotalEstocado * (porcentagemPrejuizo / 100)
+
+
+        span_calculoPrejuizoM3.innerHTML = `Sem o sensor, você perde em média R$${calculoPrejuizo.toFixed(2)} por safra devido a divergências e desperdício.`
+
+    }
+
+    function otimizaçãoEspaço() {
+        let diferencaCapacidade = volumeTotal - volumeOcupado;
+        let valorCapacidadeNaoUtilizado = valorMetro3 * diferencaCapacidade
+
+        span_capacidadeRecuperada.innerHTML = `Monitoramento em tempo real permitiu aproveitar ${diferencaCapacidade.toFixed(2)}m³ a mais de espaço seguro, gerando um ganho de R$${valorCapacidadeNaoUtilizado.toFixed(2)} sem a necessidade de construir um silo novo.`
+
+    }
+
+  function calcularCustoProjeto() {
+    quantidadeSilos = Number(ipt_qtdSilos.value);
+
+    let alturaSilo = Number(ipt_alturaSensor.value);
+
+    let resto = alturaSilo % 4;
+
+    let sensoresPorSilo = (alturaSilo - resto) / 4;
+
+    if (resto > 0) {
+      sensoresPorSilo = sensoresPorSilo + 1;
+    }
+
+    let sensoresTotais = sensoresPorSilo * quantidadeSilos;
+
+    let custoSensores = sensoresTotais * custoPorSensor;
+
+    let custoInstalacao = quantidadeSilos * taxaInstalacao;
+
+    custoMensalProjeto = 300 + quantidadeSilos * 100;
+
+    investimentoInicial = custoSensores + custoInstalacao + custoMensalProjeto;
+
+    exibir_custoProjeto.innerHTML = `
+        Sensores necessários por silo:
+        ${sensoresPorSilo}<br>
+
+        Sensores totais:
+        ${sensoresTotais}<br>
+
+        Custo dos sensores:
+        R$ ${custoSensores.toFixed(2)} (R$350 por sensor)<br>
+
+        Custo de instalação:
+        R$ ${custoInstalacao.toFixed(2)} (R$200 por silo) <br>
+
+        
+        Custo mensal do Suporte 24/7 :
+        R$ ${custoMensalProjeto.toFixed(2)} (R$300 fixos + R$100 por silo)<br>
+    
+
+        Investimento inicial total:
+        R$ ${investimentoInicial.toFixed(2)}
+`;
+  }
+          function calcularEconomia() {
+            let capacidade = Number(ipt_capacidade.value)
+            let taxaComum = Number(ipt_taxaComum.value)
+            let taxaSilosTech = Number(ipt_taxaSiloTech.value)
+            let preco = Number(ipt_preco.value)
+
+            investimentoInicial 
+
+            let toneladasEconomizadas = capacidade * (taxaComum - taxaSilosTech) / 100
+            let economiaAnual = toneladasEconomizadas * preco
+            let economiaMensal = economiaAnual / 12
+            let roiMeses
+
+            if (economiaMensal > 0) {
+                roiMeses = investimentoInicial / economiaMensal
+            } else {
+                roiMeses = 0
+            }
+
+            mensagem.innerHTML = `A economia anual estimada é de R$ ${economiaAnual.toFixed(2)}, com ROI em ${roiMeses.toFixed(1)} meses.`
+        }
+
+
+
+</script>
