@@ -1,6 +1,6 @@
 <img width="992" height="208" alt="image" src="https://github.com/user-attachments/assets/15faff7a-88bd-4e3f-aeff-8bcfdedba881" />
 
-# 🌾SilosTech GP6 — Monitoramento Inteligente de Estoque em Silos de Grãos de Soja
+# 🌾SilosTech — Monitoramento Inteligente de Estoque em Silos de Grãos de Soja
 
 **Do campo analógico ao campo conectado: transformando um sensor de baixo custo em uma ferramenta de gestão, prevenção de perdas e redução da exposição a riscos.**
 
