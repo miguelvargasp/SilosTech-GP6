@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILOTECH - Monitoramento Inteligente de Silos</title>
+  <style>
+    /* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f7f9f7;
+  color: #2b362b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #f7f9f7;
+}
+
+/* Logo com a imagem personalizada */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px; /* Ajuste a altura conforme preferir */
+  width: auto;
+  object-fit: contain;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #556055;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #0b5c2a;
+}
+
+.nav-links .btn-nav {
+  background-color: #0b5c2a;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nav-links .btn-nav:hover {
+  background-color: #084720;
+}
+
+/* Layout Principal */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 80px;
+  gap: 60px;
+  flex: 1;
+}
+
+/* Hero / Apresentação */
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #e2f0e6;
+  color: #0b5c2a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111e13;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.description {
+  color: #616e62;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Cards de Funcionalidades */
+.features-grid {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ebf0ec;
+}
+
+.feature-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111e13;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.feature-title .icon {
+  color: #0b5c2a;
+}
+
+.feature-desc {
+  font-size: 11px;
+  color: #778578;
+}
+
+/* Visualização do Silo */
+.silo-status-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ebf0ec;
+}
+
+.silo-graphic {
+  width: 50px;
+  height: 55px;
+  border: 3px solid #0b5c2a;
+  border-radius: 12px 12px 6px 6px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f5f1;
+}
+
+.silo-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #0b5c2a;
+}
+
+.silo-info {
+  flex: 1;
+}
+
+.silo-info h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111e13;
+  margin-bottom: 8px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: #e2f0e6;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #0b5c2a;
+  border-radius: 10px;
+}
+
+.silo-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #778578;
+}
+
+.silo-meta .percentage {
+  font-weight: 700;
+  color: #0b5c2a;
+}
+
+/* Card de Login */
+.login-section {
+  flex: 0 0 420px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eef2ef;
+}
+
+.login-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111e13;
+  margin-bottom: 8px;
+}
+
+.login-subtext {
+  font-size: 13px;
+  color: #778578;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2b362b;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dbe3dc;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #0b5c2a;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #556055;
+  cursor: pointer;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #556055;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: #556055;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #0b5c2a;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #084720;
+}
+
+.divider {
+  text-align: center;
+  font-size: 11px;
+  color: #a3b0a4;
+  margin: 20px 0;
+  position: relative;
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 12px;
+  color: #778578;
+}
+
+.signup-text a {
+  color: #0b5c2a;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade Básica */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .login-section {
+    width: 100%;
+    flex: auto;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho / Navbar -->
+  <header class="navbar">
+    <div class="logo">
+  <img src="logo.png" alt="SilosTech Logo" class="logo-img">
+</div>
+    <nav class="nav-links">
+      <a href="#" class="active">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Como funciona</a>
+      <a href="#" class="btn-nav">Entrar</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <section class="hero-content">
+      <div class="badge">MONITORAMENTO INTELIGENTE DE SILOS</div>
+      
+      <h1>Mais controle para o seu estoque de grãos.</h1>
+      
+      <p class="description">
+        Acompanhe o nível dos seus silos, consulte informações do estoque e tenha uma visão mais clara da operação através da plataforma SILOSTECH.
+      </p>
+
+      <!-- Cards de Recursos -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">✓</span> Tempo real
+          </div>
+          <p class="feature-desc">Acompanhamento dos silos</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📊</span> Controle
+          </div>
+          <p class="feature-desc">Dados centralizados</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📈</span> Decisão
+          </div>
+          <p class="feature-desc">Informações para gestão</p>
+        </div>
+      </div>
+
+      <!-- Card Status do Nível do Silo -->
+      <div class="silo-status-card">
+        <div class="silo-graphic">
+          <div class="silo-icon">
+            <div class="silo-fill" style="height: 68%;"></div>
+          </div>
+        </div>
+        <div class="silo-info">
+          <h3>Nível de estoque do silo</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 68%;"></div>
+          </div>
+          <div class="silo-meta">
+            <span>Monitoramento ativo</span>
+            <span class="percentage">68%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Área de Login sem <form> -->
+<section class="login-section">
+  <div class="login-card">
+    <h2>Bem-vindo!</h2>
+    <p class="login-subtext">Acesse sua conta para acompanhar o monitoramento dos seus silos.</p>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" placeholder="Digite seu e-mail">
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <div class="password-wrapper">
+        <input type="password" id="senha" placeholder="Digite sua senha">
+      </div>
+    </div>
+
+    <div class="form-options">
+      <label class="checkbox-container">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        Lembrar de mim
+      </label>
+      <a href="#" class="forgot-password">Esqueceu a senha?</a>
+    </div>
+
+    <button type="button" class="btn-submit" onclick="enviar()">Entrar na plataforma</button>
+
+    <div class="divider">ou</div>
+
+    <p class="signup-text">
+      Ainda não possui uma conta? <a href="cadastro.html">Solicitar acesso</a>
+    </p>
+  </div>
+</section>
+    
+  </main>
+
+</body>
+</html>
+
+<script>
+   
+let tentativasRestantes = 3;
+
+function enviar() {
+  let email = email.value;
+  let senha = senha.value;
+
+  
+  let contadorLoop = 0;
+
+  while (contadorLoop === 0) {
+    contadorLoop = 1; 
+
+    if (tentativasRestantes <= 0) {
+      alert('Acesso bloqueado! Você excedeu o limite de 3 tentativas.');
+    } else if (!email.includes('@')) {
+      alert('E-mail inválido! O e-mail precisa ter "@".');
+      tentativasRestantes--;
+      alert(`Tentativas restantes: ${tentativasRestantes}`);
+    } else if (!senha) {
+      alert('Digite sua senha.');
+      tentativasRestantes--;
+      alert(`Tentativas restantes: ${tentativasRestantes}`);
+    } else {
+      alert('Login realizado com sucesso! 🚀');
+      tentativasRestantes = 3; 
+    }
+  }
+}
+</script>
