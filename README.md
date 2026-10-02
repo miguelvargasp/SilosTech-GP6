@@ -1,4 +1,5 @@
-<img width="992" height="208" alt="image" src="https://github.com/user-attachments/assets/15faff7a-88bd-4e3f-aeff-8bcfdedba881" />
+<img width="2170" height="725" alt="image" src="https://github.com/user-attachments/assets/c3a97c42-206c-4c19-8b46-1d4de9832f5e" />
+
 
 # 🌾SilosTech — Monitoramento Inteligente de Estoque em Silos de Grãos de Soja
 
