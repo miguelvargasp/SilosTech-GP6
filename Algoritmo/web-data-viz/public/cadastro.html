@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILOTECH - Criar Conta</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="./js/sessao.js"></script>
+</head>
+<body>
+
+  <!-- Cabeçalho / Navbar -->
+  <header class="navbar">
+    <div class="logo">
+  <img src="logo.png" alt="SilosTech Logo" class="logo-img">
+</div>
+    <nav class="nav-links">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Como funciona</a>
+      <a href="login.html" class="btn-nav">Entrar</a>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    
+    <!-- Coluna Esquerda: Apresentação / Dashboard Preview -->
+    <section class="hero-content">
+      <div class="badge">MONITORAMENTO INTELIGENTE DE SILOS</div>
+      
+      <h1>Mais controle para o seu estoque de grãos.</h1>
+      
+      <p class="description">
+        Acompanhe o nível dos seus silos, consulte informações do estoque e tenha uma visão mais clara da operação através da plataforma SILOTECH.
+      </p>
+
+      <!-- Cards de Recursos -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">✓</span> Tempo real
+          </div>
+          <p class="feature-desc">Acompanhamento dos silos</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📊</span> Controle
+          </div>
+          <p class="feature-desc">Dados centralizados</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📈</span> Decisão
+          </div>
+          <p class="feature-desc">Informações para gestão</p>
+        </div>
+      </div>
+
+      <!-- Card Status do Nível do Silo -->
+      <div class="silo-status-card">
+        <div class="silo-graphic">
+          <div class="silo-fill" style="height: 68%;"></div>
+        </div>
+        <div class="silo-info">
+          <h3>Nível de estoque do silo</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 68%;"></div>
+          </div>
+          <div class="silo-meta">
+            <span>Monitoramento ativo</span>
+            <span class="percentage">68%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Área de Cadastro sem <form> -->
+<section class="login-section">
+  <div class="login-card">
+    <h2>Criar sua conta</h2>
+    <p class="login-subtext">Preencha os dados abaixo para solicitar seu acesso à plataforma.</p>
+
+    <div class="form-group">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="inp_nome" placeholder="Digite seu nome completo">
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail </label>
+      <input type="email" id="inp_email" placeholder="Digite seu e-mail">
+    </div>
+
+     <div class="form-group">
+      <label for="Telefone">Telefone</label>
+      <div class="password-wrapper">
+        <input type="tel" id="inp_telefone" placeholder="(99) 9999-9999">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <div class="password-wrapper">
+        <input type="password" id="inp_senha" placeholder="Crie uma senha forte">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmar-senha">Confirmar senha</label>
+      <div class="password-wrapper">
+        <input type="password" id="inp_confirmarsenha" placeholder="Repita a senha">
+      </div>
+    </div>
+
+  
+
+    <button type="button" class="btn-submit" onclick="cadastrar()" style="margin-top: 10px;">Solicitar cadastro</button>
+
+    <div class="divider">ou</div>
+
+    <p class="signup-text">
+      Já possui uma conta? <a href="index.html">Fazer login</a>
+    </p>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+
+
+    <script>
+    function cadastrar() {
+      let nome = inp_nome.value;
+      let email = inp_email.value;
+      let senha = inp_senha.value;
+      let telefone = inp_telefone.value; // Corrigido: adicionado .value
+      let confirmarSenha = inp_confirmarsenha.value;
+
+      // Validação dos campos
+      if (nome == "" || email == "" || senha == "" || confirmarSenha == "" || telefone == "") {
+        alert("Preencha todos os campos!");
+        return false;
+      }
+
+      if (!email.includes('@')) {
+        alert('E-mail inválido! Deve conter "@".');
+        return false;
+      }
+
+      if (senha != confirmarSenha) {
+        alert('As senhas não coincidem!');
+        return false;
+      }
+
+      // Enviando requisição para o backend
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nome,
+          emailServer: email,
+          senhaServer: senha,
+          telefoneServer: telefone,
+          idEmpresaVincularServer: 1 // Adicionado ID fixo/padrão para a empresa vincular
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            alert('Cadastro realizado com sucesso! 👊');
+            setTimeout(() => {
+              window.location = "login.html";
+            }, 2000);
+          } else {
+            resposta.text().then(texto => alert(`Erro: ${texto}`));
+          }
+        })
+        .catch(function (erro) {
+          console.log(`#ERRO: ${erro}`);
+        });
+
+      return false;
+    }
+</script>

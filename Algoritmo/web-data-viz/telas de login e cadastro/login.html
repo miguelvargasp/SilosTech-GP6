@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILOTECH - Monitoramento Inteligente de Silos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho / Navbar -->
+  <header class="navbar">
+    <div class="logo">
+  <img src="logo.png" alt="SilosTech Logo" class="logo-img">
+</div>
+    <nav class="nav-links">
+      <a href="#" class="active">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Como funciona</a>
+      <a href="#" class="btn-nav">Entrar</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <section class="hero-content">
+      <div class="badge">MONITORAMENTO INTELIGENTE DE SILOS</div>
+      
+      <h1>Mais controle para o seu estoque de grãos.</h1>
+      
+      <p class="description">
+        Acompanhe o nível dos seus silos, consulte informações do estoque e tenha uma visão mais clara da operação através da plataforma SILOSTECH.
+      </p>
+
+      <!-- Cards de Recursos -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">✓</span> Tempo real
+          </div>
+          <p class="feature-desc">Acompanhamento dos silos</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📊</span> Controle
+          </div>
+          <p class="feature-desc">Dados centralizados</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📈</span> Decisão
+          </div>
+          <p class="feature-desc">Informações para gestão</p>
+        </div>
+      </div>
+
+      <!-- Card Status do Nível do Silo -->
+      <div class="silo-status-card">
+        <div class="silo-graphic">
+          <div class="silo-icon">
+            <div class="silo-fill" style="height: 68%;"></div>
+          </div>
+        </div>
+        <div class="silo-info">
+          <h3>Nível de estoque do silo</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 68%;"></div>
+          </div>
+          <div class="silo-meta">
+            <span>Monitoramento ativo</span>
+            <span class="percentage">68%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Área de Login sem <form> -->
+<section class="login-section">
+  <div class="login-card">
+    <h2>Bem-vindo!</h2>
+    <p class="login-subtext">Acesse sua conta para acompanhar o monitoramento dos seus silos.</p>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="inp_email" placeholder="Digite seu e-mail">
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <div class="password-wrapper">
+        <input type="password" id="inp_senha" placeholder="Digite sua senha">
+      </div>
+    </div>
+
+    <div class="form-options">
+      <label class="checkbox-container">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        Lembrar de mim
+      </label>
+      
+    </div>
+
+    <button type="button" class="btn-submit" onclick="enviar()">Entrar na plataforma</button>
+
+    <div class="divider">ou</div>
+
+    <p class="signup-text">
+      Ainda não possui uma conta? <a href="cadastro.html">Solicitar acesso</a>
+    </p>
+  </div>
+</section>
+    
+  </main>
+
+</body>
+</html>
+
+<script>
+
+function enviar() {
+   let email = inp_email.value
+  let senha = inp_senha.value;
+  let senhalista = [1234]
+
+  if(!email.includes('@') || senha != senhalista){
+    alert('email incorreto ou senha incorreta')
+  }else{
+    alert('Login Realizado com sucesso')
+  }
+  }
+
+</script>
