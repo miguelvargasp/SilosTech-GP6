@@ -1,158 +1,135 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Login</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILOTECH - Monitoramento Inteligente de Silos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!--Header-->
+  <!-- Cabeçalho / Navbar -->
+  <header class="navbar">
+    <div class="logo">
+  <img src="logo.png" alt="SilosTech Logo" class="logo-img">
+</div>
+    <nav class="nav-links">
+      <a href="#" class="active">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Como funciona</a>
+      <a href="#" class="btn-nav">Entrar</a>
+    </nav>
+  </header>
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
+  <main class="container">
+    
+    <section class="hero-content">
+      <div class="badge">MONITORAMENTO INTELIGENTE DE SILOS</div>
+      
+      <h1>Mais controle para o seu estoque de grãos.</h1>
+      
+      <p class="description">
+        Acompanhe o nível dos seus silos, consulte informações do estoque e tenha uma visão mais clara da operação através da plataforma SILOSTECH.
+      </p>
+
+      <!-- Cards de Recursos -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">✓</span> Tempo real
+          </div>
+          <p class="feature-desc">Acompanhamento dos silos</p>
         </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📊</span> Controle
+          </div>
+          <p class="feature-desc">Dados centralizados</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-title">
+            <span class="icon">📈</span> Decisão
+          </div>
+          <p class="feature-desc">Informações para gestão</p>
+        </div>
+      </div>
+
+      <!-- Card Status do Nível do Silo -->
+      <div class="silo-status-card">
+        <div class="silo-graphic">
+          <div class="silo-icon">
+            <div class="silo-fill" style="height: 68%;"></div>
+          </div>
+        </div>
+        <div class="silo-info">
+          <h3>Nível de estoque do silo</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 68%;"></div>
+          </div>
+          <div class="silo-meta">
+            <span>Monitoramento ativo</span>
+            <span class="percentage">68%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Área de Login sem <form> -->
+<section class="login-section">
+  <div class="login-card">
+    <h2>Bem-vindo!</h2>
+    <p class="login-subtext">Acesse sua conta para acompanhar o monitoramento dos seus silos.</p>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="inp_email" placeholder="Digite seu e-mail">
     </div>
 
-
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login"></div>
-            </div>
-        </div>
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <div class="password-wrapper">
+        <input type="password" id="inp_senha" placeholder="Digite sua senha">
+      </div>
     </div>
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
-        </div>
+    <div class="form-options">
+      <label class="checkbox-container">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+        Lembrar de mim
+      </label>
+      
     </div>
-    <!--footer fim-->
+
+    <button type="button" class="btn-submit" onclick="enviar()">Entrar na plataforma</button>
+
+    <div class="divider">ou</div>
+
+    <p class="signup-text">
+      Ainda não possui uma conta? <a href="cadastro.html">Solicitar acesso</a>
+    </p>
+  </div>
+</section>
+    
+  </main>
 
 </body>
-
 </html>
 
 <script>
 
+function enviar() {
+   let email = inp_email.value
+  let senha = inp_senha.value;
+  let senhalista = [1234]
 
-    function entrar() {
-        aguardar();
-
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+  if(!email.includes('@') || senha != senhalista){
+    alert('email incorreto ou senha incorreta')
+  }else{
+    alert('Login Realizado com sucesso')
+  }
+  }
 
 </script>
