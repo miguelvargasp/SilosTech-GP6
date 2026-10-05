@@ -1,4 +1,5 @@
 
+create database db_silostech;
 USE db_silostech;
 
 CREATE TABLE empresa (
@@ -142,3 +143,5 @@ JOIN silo s ON se.fkSilo = s.idSilo
 JOIN locais l ON s.fkLocal = l.idLocal
 JOIN empresa e ON l.fkEmpresa = e.idEmpresa
 ORDER BY le.dataHoraLeitura DESC;
+
+select * from cliente;
