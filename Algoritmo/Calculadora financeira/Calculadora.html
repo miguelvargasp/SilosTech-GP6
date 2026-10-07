@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Financeira de Silo</title>
+</head>
+
+<body>
+
+<h2>Calculadora Financeira - Monitoramento de Silo</h2>
+
+Capacidade do silo (toneladas):
+<input id="input_capacidade">
+<br><br>
+
+Porcentagem ocupada do silo:
+<input id="input_ocupacao">
+<br><br>
+
+Preço da tonelada da soja:
+<input id="input_preco">
+<br><br>
+
+Perda estimada sem monitoramento (%):
+<input id="input_perda_sem">
+<br><br>
+
+Perda estimada com monitoramento (%):
+<input id="input_perda_com">
+<br><br>
+
+
+<button onclick="calcular()">Calcular</button>
+
+<br><br>
+
+<div id="div_exibir"></div>
+
+
+<script>
+
+function calcular(){
+
+    let capacidade = Number(input_capacidade.value);
+    let ocupacao = Number(input_ocupacao.value);
+    let preco = Number(input_preco.value);
+    let perdaSem = Number(input_perda_sem.value);
+    let perdaCom = Number(input_perda_com.value);
+
+
+    let toneladas = capacidade * (ocupacao / 100);
+
+
+    let valorSoja = toneladas * preco;
+
+
+    let valorPerdaSem = valorSoja * (perdaSem / 100);
+
+
+    let valorPerdaCom = valorSoja * (perdaCom / 100);
+
+
+    let reducaoPerda = valorPerdaSem - valorPerdaCom;
+
+
+    let valorPreservado = valorSoja - valorPerdaCom;
+
+
+    div_exibir.innerHTML = `
+
+    Quantidade aproximada de soja:
+    ${toneladas.toFixed(2)} toneladas <br><br>
+
+    Valor da soja armazenada:
+    R$ ${valorSoja.toFixed(2)} <br><br>
+
+    Possível perda sem monitoramento:
+    R$ ${valorPerdaSem.toFixed(2)} <br><br>
+
+    Possível perda com monitoramento:
+    R$ ${valorPerdaCom.toFixed(2)} <br><br>
+
+    Redução estimada de perdas:
+    R$ ${reducaoPerda.toFixed(2)} <br><br>
+
+    Valor da produção preservado:
+    R$ ${valorPreservado.toFixed(2)}
+
+    `;
+
+}
+
+</script>
+
+</body>
+</html>
