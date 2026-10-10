@@ -24,7 +24,7 @@ CREATE TABLE locais (
     estadoLocal CHAR(2),
     complementoLocal VARCHAR(50),
     statusLocal TINYINT NOT NULL DEFAULT 1,
-    fkEmpresa INT NOT NULL,
+    fkEmpresa INT,
 
     CONSTRAINT fk_locais_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
     CONSTRAINT chk_status_local CHECK (statusLocal IN (0, 1))
@@ -41,7 +41,7 @@ CREATE TABLE cliente (
     senhaCliente VARCHAR(255) NOT NULL,
     statusCliente TINYINT NOT NULL DEFAULT 1,
     permissaoCliente TINYINT NOT NULL DEFAULT 0,   -- 0, 1 ou 2 
-    fkEmpresa INT NOT NULL,
+    fkEmpresa INT,
 
     CONSTRAINT fk_cliente_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
     CONSTRAINT chk_permissao_cliente CHECK (permissaoCliente IN (0, 1, 2)),
@@ -145,3 +145,5 @@ JOIN empresa e ON l.fkEmpresa = e.idEmpresa
 ORDER BY le.dataHoraLeitura DESC;
 
 select * from cliente;
+
+drop table cliente;

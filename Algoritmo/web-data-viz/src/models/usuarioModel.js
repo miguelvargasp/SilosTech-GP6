@@ -10,10 +10,7 @@ function autenticar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, email, telefone, senha, fkEmpresa) {
-    // Se não vier nenhuma empresa do front, coloca o valor 1 como padrão
-    var idEmpresa = fkEmpresa || 1;
-
+function cadastrar(nome, email, telefone, senha) {
     var instrucaoSql = `
         INSERT INTO cliente (nomeCliente, emailCliente, telefoneCliente, senhaCliente) 
         VALUES ('${nome}', '${email}', '${telefone}', '${senha}');
