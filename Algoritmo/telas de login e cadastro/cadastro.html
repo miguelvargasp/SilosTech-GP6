@@ -1,133 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SILOTECH - Criar Conta</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="style.css">
-  <script src="./js/sessao.js"></script>
 </head>
 <body>
-
-  <!-- Cabeçalho / Navbar -->
-  <header class="navbar">
-    <div class="logo">
-  <img src="logo.png" alt="SilosTech Logo" class="logo-img">
-</div>
-    <nav class="nav-links">
-      <a href="#">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Como funciona</a>
-      <a href="login.html" class="btn-nav">Entrar</a>
-    </nav>
-  </header>
-
-  <!-- Conteúdo Principal -->
-  <main class="container">
-    
-    <!-- Coluna Esquerda: Apresentação / Dashboard Preview -->
-    <section class="hero-content">
-      <div class="badge">MONITORAMENTO INTELIGENTE DE SILOS</div>
-      
-      <h1>Mais controle para o seu estoque de grãos.</h1>
-      
-      <p class="description">
-        Acompanhe o nível dos seus silos, consulte informações do estoque e tenha uma visão mais clara da operação através da plataforma SILOTECH.
-      </p>
-
-      <!-- Cards de Recursos -->
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-title">
-            <span class="icon">✓</span> Tempo real
-          </div>
-          <p class="feature-desc">Acompanhamento dos silos</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-title">
-            <span class="icon">📊</span> Controle
-          </div>
-          <p class="feature-desc">Dados centralizados</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-title">
-            <span class="icon">📈</span> Decisão
-          </div>
-          <p class="feature-desc">Informações para gestão</p>
-        </div>
-      </div>
-
-      <!-- Card Status do Nível do Silo -->
-      <div class="silo-status-card">
-        <div class="silo-graphic">
-          <div class="silo-fill" style="height: 68%;"></div>
-        </div>
-        <div class="silo-info">
-          <h3>Nível de estoque do silo</h3>
-          <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 68%;"></div>
-          </div>
-          <div class="silo-meta">
-            <span>Monitoramento ativo</span>
-            <span class="percentage">68%</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-   <!-- Área de Cadastro sem <form> -->
-<section class="login-section">
-  <div class="login-card">
-    <h2>Criar sua conta</h2>
-    <p class="login-subtext">Preencha os dados abaixo para solicitar seu acesso à plataforma.</p>
-
-    <div class="form-group">
-      <label for="nome">Nome completo</label>
-      <input type="text" id="inp_nome" placeholder="Digite seu nome completo">
-    </div>
-
-    <div class="form-group">
-      <label for="email">E-mail </label>
-      <input type="email" id="inp_email" placeholder="Digite seu e-mail">
-    </div>
-
-     <div class="form-group">
-      <label for="Telefone">Telefone</label>
-      <div class="password-wrapper">
-        <input type="tel" id="inp_telefone" placeholder="(99) 9999-9999">
+  <div class="container">
+    <div class="cima">
+      <img src="logo.png" class="img">
+      <div class="secao">
+      <h4><a href="index.html">Home</a></h4>
+      <h4><a href="calculadora.html">Calculadoura financeira</a></h4>
+      <h4><a href="dashboard.html">Dashboard </a></h4>
+      <h4><a href="#">login</a></h4>
       </div>
     </div>
-
-
-    <div class="form-group">
-      <label for="senha">Senha</label>
-      <div class="password-wrapper">
-        <input type="password" id="inp_senha" placeholder="Crie uma senha forte">
+    <div class="meio">
+      <h1 class="texto">Criar Conta</h1>
+      <label for="inp_nome" class="campo">Nome</label>
+      <input type="text" name="" id="inp_nome" placeholder="Informe Seu Nome">
+      <label for="inp_email" class="campo">Email</label>
+      <input type="text" name="" id="inp_email" placeholder="Insira Seu Email">
+      <br>
+      <label for="inp_telefone" class="campo">Telefone</label>
+      <input type="text" name="" id="inp_telefone" placeholder="Informe seu Telefone ex: 11 97831-3112">
+      <label for="inp_senha" class="campo">Senha</label>
+      <input type="text" name="" id="inp_senha" placeholder="Insira Sua Senha">
+      <label for="inp_confirmar" class="campo">Confirmar senha</label>
+      <input type="text" name="" id="inp_confirmar" placeholder="Insira Sua Senha novamente">
+   
+    <button onclick="entrar()" class="botao">entre agora</button>
+    <p class="conta">Possui uma conta? <a href="login.html" class="cadastro"> Logar </a></p>
+     </div>
+    <div class="baixo">
+      <div class="contatos">
+        <div class="coluna-1">
+        <img src="silos.png" alt="" class="img">
+        <p>Tecnologia de hardware e software IoT dedicada ao <br> agronegócio de alta produtividade. Sensores <br> precisos, decisões rápidas.</p>
+        </div>
+        <div class="coluna-2">
+          <h2>Links Rápidos</h2>
+          <p> <a href="sobre.html" class="inferior"> Sobre Nós</a></p>
+          <p> <a href="calculadora.html" class="inferior">Calculadora</a></p>
+          <p><a href="Monitoramento.html"class="inferior">Monitoramento</a></p>
+          <p><a href="Duvidas.html" class="inferior">Dúvidas Frequentes </a></p>
+        </div>
+        <div class="coluna-3">
+          <h2>Contato</h2>
+          <p>contato@silostech.com.br</p>
+          <p>+55 (11) 4002-8922</p>
+          <p>São Paulo, São Paulo - Brasil</p>
+        </div>
+        <div class="coluna-4">
+          <h2>Redes Sociais</h2>
+          <a href="#"><button><img src="linke.png" alt="" width="30px" height="30px"></button></a>
+          <a href="#"><button><img src="insta.png" alt="" width="30px" height="30px"></button></a>
+          <a href="#"><button><img src="you.png" alt="" width="30px" height="30px"></button></a>
+          <a href="#"><button><img src="face.png" alt="" width="30px" height="30px"></button></a>
+        </div>
+      </div>
+      <div class="direitos">
+        <p>© 2026 SilosTech. Todos os direitos reservados.</p>
+        <p>Política de Privacidade</p>
+        <p>Termos de Serviço</p>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="confirmar-senha">Confirmar senha</label>
-      <div class="password-wrapper">
-        <input type="password" id="inp_confirmarsenha" placeholder="Repita a senha">
-      </div>
-    </div>
-
-  
-
-    <button type="button" class="btn-submit" onclick="cadastrar()" style="margin-top: 10px;">Solicitar cadastro</button>
-
-    <div class="divider">ou</div>
-
-    <p class="signup-text">
-      Já possui uma conta? <a href="index.html">Fazer login</a>
-    </p>
   </div>
-</section>
-
-  </main>
+</body>
+</html>
 
 </body>
 </html>
