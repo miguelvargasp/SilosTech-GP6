@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="cima">
+
+    </div>
+    <div class="meio">
+    <div>
+        <canvas id="graficoLinhas" class="dashboard"></canvas>
+    </div>
+    </div>
+    <div class="baixo">
+    
+    </div>
+</body>
+</html>
+
+<script>
+    
+    const grafico = document.getElementById('graficoLinhas')
+
+    new Chart(grafico,{
+        type:'line',
+        data:{
+            labels:[
+                'janeiro',
+                'fevereiro',
+                'março',
+                'abril',
+                'maio',
+                'junho',
+                'julho',
+                'agosto',
+                'setembro',
+                'outubro',
+                'novembro',
+                'dezembro'
+            ],
+            datasets:[
+                {
+                    label:'Porcentagem de grãos no silo',
+                    data:[50,70,40,10,70,100,80,90,30,11,28,78],
+
+                }
+            ]
+        },
+           options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+    })
+</script>
