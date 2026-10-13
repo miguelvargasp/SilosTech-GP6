@@ -140,20 +140,20 @@ input:focus{
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória sutil */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); 
   font-size: 14px;
   color: #e0e0e0;
   flex-wrap: wrap;
   gap: 15px;
 }
 .baixo h2 {
-  margin-bottom: 15px; /* Afasta o título dos links/textos abaixo dele */
+  margin-bottom: 15px; 
   font-size: 18px;
 }
 
 .baixo p {
-  margin-bottom: 10px; /* Dá um respiro entre as linhas de texto e parágrafos */
-  line-height: 1.5;    /* Melhora a leitura deixando o texto mais soltinho */
+  margin-bottom: 10px; 
+  line-height: 1.5;    
 }
 
 button{
@@ -161,4 +161,68 @@ button{
   cursor: pointer;
   outline: none;
   border: none;
+}
+.DashMeio {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 40px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.842);
+  border-radius: 12px;
+  background-color: #fff;
+  padding-left: 200px; 
+  position: relative;
+}
+
+
+.itens-esquerda {
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.kpis-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.kpi-card {
+  background: #f1f8f1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.842);
+  text-align: center;
+  margin-top: 100px;
+  width: 200px;
+  height: 100px;
+}
+
+.kpi-card span {
+  font-size: 11px;
+  color: #666;
+}
+
+.kpi-card h4 {
+  font-size: 16px;
+  color: #1b751b;
+  margin-top: 3px;
+}
+
+
+.grafico-baixo {
+  width: 100%;
+  height: 350px; 
+  position: relative;
+}
+
+.dashboard {
+  width: 100%;
+  height: 100% ;
 }
