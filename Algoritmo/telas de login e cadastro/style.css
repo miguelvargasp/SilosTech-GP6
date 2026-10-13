@@ -184,7 +184,7 @@ button{
   flex-direction: column;
   gap: 15px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.842);
-  height: 660px;
+  height: 560px;
   border-radius: 12px;
 }
 
@@ -204,7 +204,7 @@ button{
   border-radius: 8px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.842);
   text-align: center;
-  margin-top: 100px;
+  margin-top: 0px;
   width: 200px;
   height: 100px;
 }
@@ -244,4 +244,22 @@ button{
    background-color: #befcbe;
    color: #239023;
   font-weight: bold;
+}
+
+.kpi-card:hover{
+  box-shadow: 5px 3px 8px rgba(32, 255, 81, 0.842);
+}
+
+.kpi-dounut{
+  width: 70px;   /* Reduzimos um pouco para garantir que fique proporcional */
+  height: 70px;  
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#donut {
+  width: 100% !important;
+  height: 100% !important;
 }
