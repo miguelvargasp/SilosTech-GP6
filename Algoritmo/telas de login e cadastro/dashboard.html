@@ -32,16 +32,16 @@
        
         <div class="kpis-topo">
             <div class="kpi-card">
-              <div class="kpi-donut"></div>
-                <canvas id="donut"></canvas>
+                <span>Média mensal total (12 meses)</span>
+                <h4>555,83 toneladas</h4>
             </div>
             <div class="kpi-card">
-                <span>Máximo</span>
-                <h4>100%</h4>
+                <span>Média máxima</span>
+                <h4>980 toneladas</h4>
             </div>
             <div class="kpi-card">
-                <span>Mínimo</span>
-                <h4>10%</h4>
+                <span>Média mínima</span>
+                <h4>200 toneladas</h4>
             </div>
         </div>
 
@@ -113,8 +113,8 @@
             ],
             datasets:[
                 {
-                    label:'Porcentagem de grãos no silo',
-                    data:[50,70,40,10,70,100,80,90,30,11,28,78],
+                    label:'Média mensal de ocupação do silo (em toneladas)',
+                    data:[500,710,450,200,650,980,800,780,330,280,420,570],
                     borderColor:'green',
                     backgroundColor: 'green'
                 }
@@ -128,34 +128,5 @@
       }
     }
     })
-    new Chart(donut,{
-        type:'doughnut',
-        data:{
-            labels:[
-                'janeiro',
-                'fevereiro',
-                  'março'
-            ],
-            datasets:[
-                {
-                    label:'Porcentagem de grãos no silo',
-                    data:[50,30,20],
-                     backgroundColor: [
-                  'green',
-                  'red'
-                ]
-                
-                }
-            ]
-        },
-     options: {
-            responsive: true,
-            maintainAspectRatio: false, // <-- Fundamental para respeitar os 70x70px da div pai
-            plugins: {
-                legend: {
-                    display: false // Esconde a legenda lateral para não vazar do card pequeno
-                }
-            }
-        }
-    })
+    
 </script>
