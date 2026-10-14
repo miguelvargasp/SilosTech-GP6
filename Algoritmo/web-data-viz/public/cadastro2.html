@@ -105,6 +105,10 @@
   let listaEmpresasCadastradas = [];
 
   function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
@@ -113,7 +117,7 @@
     var codigoVar = codigo_input.value;
     var idEmpresaVincular
 
-   
+    // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
