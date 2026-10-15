@@ -61,3 +61,39 @@
 .texto{
   color: #126a12;
 }
+
+.baixo{
+  background-color: #1b751b;
+  width: 100%;
+  padding: 50px 40px 20px 40px;
+  color: white;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column; 
+  gap: 70px;
+}
+
+.direitos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+  font-size: 14px;
+  color: #e0e0e0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.contatos{
+   justify-content: space-around;
+   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 90px;
+ 
+}
