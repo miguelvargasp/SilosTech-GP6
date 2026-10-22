@@ -24,6 +24,9 @@
       <br>
       <label for="inp_senha" class="campo">Senha</label>
       <input type="text" name="" id="inp_senha" placeholder="Insira Sua Senha">
+      <br>
+      <label for="inp_codigo" class="campo">Codigo Da Empresa</label>
+      <input type="text" name="" id="inp_codigo" placeholder="Insira Sua Senha">
    
     <button onclick="entrar()" class="botao">entre agora</button>
     <p class="conta">ainda não possui conta? <a href="cadastro.html" class="cadastro"> Cadastre-se </a></p>
@@ -67,10 +70,12 @@
 <script>
 
     function entrar() {
-        var emailVar = inp_email.value;
-        var senhaVar = inp_senha.value;
+        let emailVar = inp_email.value;
+        let senhaVar = inp_senha.value;
+        let codigo = inp_codigo.value;
 
-        if (emailVar == "" || senhaVar == "") {
+
+        if (emailVar == "" || senhaVar == "" || codigo == "") {
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
             return false;
@@ -86,7 +91,8 @@
             },
             body: JSON.stringify({
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                codigoServer:codigo
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -99,6 +105,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.EMPRESA = json.codigo;
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
