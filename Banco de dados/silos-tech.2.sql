@@ -34,10 +34,8 @@ CREATE TABLE locais (
 CREATE TABLE cliente (
     idCliente INT PRIMARY KEY AUTO_INCREMENT,
     nomeCliente VARCHAR(100) NOT NULL,
-    cpfCliente CHAR(11) UNIQUE,
     emailCliente VARCHAR(100) UNIQUE,
     telefoneCliente VARCHAR(20),
-    dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     senhaCliente VARCHAR(255) NOT NULL,
     statusCliente TINYINT NOT NULL DEFAULT 1,
     permissaoCliente TINYINT NOT NULL DEFAULT 0,   -- 0, 1 ou 2 
@@ -55,7 +53,6 @@ CREATE TABLE silo (
     nomeSilo VARCHAR(50) NOT NULL,
     capacidadeMaximaVolume DECIMAL(12,2) NOT NULL,
     tipoConteudo VARCHAR(50),
-    dataInstalacao DATE,
     statusSilo TINYINT NOT NULL DEFAULT 1,
     fkLocal INT NOT NULL,
 
@@ -100,19 +97,19 @@ INSERT INTO locais (nomeLocal, cepLocal, numeroLocal, bairroLocal, cidadeLocal, 
 ('Unidade Rio Verde', '75901000', '850', 'Setor Industrial', 'Rio Verde', 'GO', 'Armazém de soja', 3),
 ('Unidade Itumbiara', '75503000', '680', 'Zona Rural', 'Itumbiara', 'GO', 'Unidade de silos', 4);
 
-INSERT INTO cliente (nomeCliente, cpfCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente, permissaoCliente, fkEmpresa) VALUES
-('Carlos Silva', '12345678901', 'carlos.silva@email.com', '(11) 98765-4321', '$2y$10$eImiTXuWVxfM37uY4JANjOL.oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 1),
-('Ana Souza', '23456789012', 'ana.souza@email.com', '(21) 99876-5432', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 0, 2),
-('Marcos Oliveira', '34567890123', 'marcos.oliveira@email.com', '(31) 98888-7777', '$2y$10$X7vRtY2bN8mK9pL3qW1s2u4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 0, 0, 3),
-('Juliana Lima', '45678901234', 'juliana.lima@email.com', '(41) 97777-6666', '$2y$10$Z3xCvBnM1qAzWsEdRfTgYh6oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 4),
-('Roberto Santos', '56789012345', 'roberto.santos@email.com', '(71) 96666-5555', '$2y$10$P5oLiKuYtReWqAzXsEdCfV8oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 0, 1, 4);
+INSERT INTO cliente (nomeCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente, permissaoCliente, fkEmpresa) VALUES
+('Carlos Silva', 'carlos.silva@email.com', '(11) 98765-4321', '$2y$10$eImiTXuWVxfM37uY4JANjOL.oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 1),
+('Ana Souza', 'ana.souza@email.com', '(21) 99876-5432', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 0, 2),
+('Marcos Oliveira', 'marcos.oliveira@email.com', '(31) 98888-7777', '$2y$10$X7vRtY2bN8mK9pL3qW1s2u4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 0, 0, 3),
+('Juliana Lima', 'juliana.lima@email.com', '(41) 97777-6666', '$2y$10$Z3xCvBnM1qAzWsEdRfTgYh6oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 4),
+('Roberto Santos', 'roberto.santos@email.com', '(71) 96666-5555', '$2y$10$P5oLiKuYtReWqAzXsEdCfV8oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 0, 1, 4);
 
-INSERT INTO silo (nomeSilo, capacidadeMaximaVolume, tipoConteudo, dataInstalacao, fkLocal) VALUES
-('Silo GrãoSoberano', 150000.00, 'Soja', '2024-03-15', 1),
-('Silo SafraOuro', 250000.50, 'Soja', '2023-08-22', 2),
-('Silo Milhoja', 180000.00, 'Soja', '2025-01-10', 3),
-('Silo Agromais Grãos', 90000.75, 'Soja', '2022-11-05', 4),
-('Silo DouroGrão', 120000.00, 'Soja', '2024-06-18', 5);
+INSERT INTO silo (nomeSilo, capacidadeMaximaVolume, tipoConteudo, fkLocal) VALUES
+('Silo GrãoSoberano', 150000.00, 'Soja', 1),
+('Silo SafraOuro', 250000.50, 'Soja', 2),
+('Silo Milhoja', 180000.00, 'Soja', 3),
+('Silo Agromais Grãos', 90000.75, 'Soja', 4),
+('Silo DouroGrão', 120000.00, 'Soja', 5);
 
 INSERT INTO sensor (statusSensor, fkSilo) VALUES
 (1, 1),
