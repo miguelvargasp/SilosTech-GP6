@@ -1,4 +1,3 @@
-
 create database db_silostech;
 USE db_silostech;
 
@@ -64,25 +63,33 @@ CREATE TABLE silo (
 CREATE TABLE sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
     statusSensor TINYINT NOT NULL DEFAULT 1,
-    fkSilo INT NOT NULL,
+    fkSilo INT,
 
     CONSTRAINT fk_sensor_silo FOREIGN KEY (fkSilo) REFERENCES silo(idSilo),
     CONSTRAINT chk_status_sensor CHECK (statusSensor IN (0, 1))
 );
 
+drop table sensor;
+
 --  LEITURA (cada medição feita por um sensor) 
 CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
     dataHoraLeitura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    valorLeitura DECIMAL(4,2) NOT NULL,   -- definir a unidade (ex.: distância em cm, temperatura em °C)
-    fkSensor INT ,
+    valorLeitura DECIMAL(6,2) NOT NULL,   -- definir a unidade (ex.: distância em cm, temperatura em °C)
+    fkSensor INT,
 
     CONSTRAINT fk_leitura_sensor FOREIGN KEY (fkSensor) REFERENCES sensor(idSensor)
 );
 
+select * from leitura where valorLeitura >= 61;
+
+select * from leitura;
+
+truncate table leitura;
+
+drop table leitura;
 
 -- INSERTS (na ordem das dependências)
-
 
 INSERT INTO empresa (razaoSocial, nomeEmpresa, cnpjEmpresa) VALUES
 ('AgroSilos Armazenagem de Grãos Ltda', 'AgroSilos', '12345678000101'),
@@ -111,12 +118,12 @@ INSERT INTO silo (nomeSilo, capacidadeMaximaVolume, tipoConteudo, fkLocal) VALUE
 ('Silo Agromais Grãos', 90000.75, 'Soja', 4),
 ('Silo DouroGrão', 120000.00, 'Soja', 5);
 
-INSERT INTO sensor (statusSensor, fkSilo) VALUES
-(1, 1),
-(1, 2),
-(0, 3),
-(1, 4),
-(1, 5);
+INSERT INTO sensor (statusSensor) VALUES
+(1),
+(1),
+(1),
+(1),
+(1);
 
 INSERT INTO leitura (dataHoraLeitura, valorLeitura, fkSensor) VALUES
 ('2026-10-01 10:00:00', 1.23, 1),
@@ -144,3 +151,9 @@ ORDER BY le.dataHoraLeitura DESC;
 select * from cliente;
 
 drop table cliente;
+
+select * from sensor;
+
+select * from sensor join leitura on fkSensor = idSensor where dataHoraLeitura = '2026-10-23 13:12:44';
+
+select * from leitura order by valorLeitura desc;
