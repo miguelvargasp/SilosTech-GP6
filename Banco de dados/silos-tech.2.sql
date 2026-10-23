@@ -75,7 +75,7 @@ CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
     dataHoraLeitura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     valorLeitura DECIMAL(4,2) NOT NULL,   -- definir a unidade (ex.: distância em cm, temperatura em °C)
-    fkSensor INT NOT NULL,
+    fkSensor INT ,
 
     CONSTRAINT fk_leitura_sensor FOREIGN KEY (fkSensor) REFERENCES sensor(idSensor)
 );
