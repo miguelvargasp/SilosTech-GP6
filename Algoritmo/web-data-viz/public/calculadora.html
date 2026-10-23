@@ -96,7 +96,7 @@
         let capacidade = Number(input_capacidade.value);
         let ocupacao = Number(input_ocupacao.value);
         let preco = Number(input_preco.value);
-
+        let mensagem = "";
         let perdaSem = Number(input_perda_sem.value);
         let perdaCom = Number(input_perda_com.value);
         let toneladas = capacidade * (ocupacao / 100);
@@ -104,11 +104,21 @@
         let valorSoja = toneladas * preco;
         let valorPerdaSem = valorSoja * (perdaSem / 100);
         let valorPerdaCom = valorSoja * (perdaCom / 100);
-        
         let reducaoPerda = valorPerdaSem - valorPerdaCom;
         let valorPreservado = valorSoja - valorPerdaCom;
+        let mes = 1
+        let perdaMesSem = 0;
+        let perdaMesCom = 0;
 
-        div_exibir.innerHTML = `
+        while(mes<=12){
+        perdaMesSem += (valorPerdaSem / 12);
+        perdaMesCom += (valorPerdaCom / 12);
+        
+        mensagem += `<b>Mês ${mes}:</b> Sem sensor: <span style="color: #902323;">R$ ${perdaMesSem.toFixed(2)}</span> | Com SilosTech: <span style="color: #239023;">R$ ${perdaMesCom.toFixed(2)}</span><br>`;
+        mes++;
+        }
+
+        mensagem += `
         Quantidade aproximada de soja:
         ${toneladas.toFixed(2)} toneladas <br><br>
 
@@ -131,6 +141,7 @@
         <b style="color: #239023;">${(((valorPerdaCom/valorPerdaSem)-1)*100).toFixed(2)}%</b>
         `;
         
+        div_exibir.innerHTML=mensagem;
     }
         </script>
 </html>
