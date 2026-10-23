@@ -49,7 +49,7 @@
 
 
             <button onclick="calcular()" class="botao">Calcular</button> <br>
-            <div id="div_exibir"></div>
+            <div id="div_exibir" class="mensagem"></div>
         </div>
         
         <div class="baixo">
@@ -118,7 +118,7 @@
         mes++;
         }
 
-        mensagem += `
+        mensagem += `<br><br>
         Quantidade aproximada de soja:
         ${toneladas.toFixed(2)} toneladas <br><br>
 
