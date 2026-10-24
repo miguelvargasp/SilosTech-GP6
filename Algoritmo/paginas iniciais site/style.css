@@ -255,7 +255,6 @@ button{
   height: 70px;  
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
