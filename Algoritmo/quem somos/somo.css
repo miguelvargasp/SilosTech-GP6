@@ -95,19 +95,3 @@ h2 {
 .card-valores li strong {
   font-weight: 700;
 }
-
-/* ---------- Responsivo ---------- */
-@media (max-width: 800px) {
-  .sobre {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 32px auto;
-    padding: 0 16px;
-  }
-
-  .card {
-    min-height: auto;
-    padding: 36px 28px;
-    border-radius: 36px;
-  }
-}
