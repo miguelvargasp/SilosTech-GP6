@@ -1,0 +1,113 @@
+:root {
+  --verde: #1b5e20;
+  --fundo: #f3f5f4;
+  --texto: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: var(--fundo);
+  border-top: 2px solid #1e88e5;
+  min-height: 100vh;
+}
+
+.sobre {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1100px;
+  margin: 56px auto;
+  padding: 0 10px;
+}
+
+.card {
+  border-radius: 48px;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 382px;
+}
+
+h2 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- Quem Somos ---------- */
+.card-quem-somos {
+  background: var(--verde);
+  color: #fff;
+  text-align: center;
+}
+
+.card-quem-somos h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.card-quem-somos p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.card-quem-somos strong {
+  font-weight: 700;
+}
+
+/* ---------- Nossos Valores ---------- */
+.card-valores {
+  background: #fff;
+  color: var(--texto);
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.card-valores h2 {
+  color: var(--verde);
+  font-size: 2rem;
+  margin-bottom: 26px;
+}
+
+.card-valores ul {
+  list-style: disc;
+  padding-left: 22px;
+}
+
+.card-valores li {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+
+.card-valores li:last-child {
+  margin-bottom: 0;
+}
+
+.card-valores li strong {
+  font-weight: 700;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 800px) {
+  .sobre {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 32px auto;
+    padding: 0 16px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 36px 28px;
+    border-radius: 36px;
+  }
+}
