@@ -30,7 +30,7 @@ CREATE TABLE locais (
 );
 
 --  CLIENTE (usuário que pertence a uma empresa) 
-CREATE TABLE cliente (
+CREATE TABLE usuario (
     idCliente INT PRIMARY KEY AUTO_INCREMENT,
     nomeCliente VARCHAR(100) NOT NULL,
     emailCliente VARCHAR(100) UNIQUE,
@@ -104,7 +104,7 @@ INSERT INTO locais (nomeLocal, cepLocal, numeroLocal, bairroLocal, cidadeLocal, 
 ('Unidade Rio Verde', '75901000', '850', 'Setor Industrial', 'Rio Verde', 'GO', 'Armazém de soja', 3),
 ('Unidade Itumbiara', '75503000', '680', 'Zona Rural', 'Itumbiara', 'GO', 'Unidade de silos', 4);
 
-INSERT INTO cliente (nomeCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente, permissaoCliente, fkEmpresa) VALUES
+INSERT INTO usuario (nomeCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente, permissaoCliente, fkEmpresa) VALUES
 ('Carlos Silva', 'carlos.silva@email.com', '(11) 98765-4321', '$2y$10$eImiTXuWVxfM37uY4JANjOL.oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 1),
 ('Ana Souza', 'ana.souza@email.com', '(21) 99876-5432', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 0, 2),
 ('Marcos Oliveira', 'marcos.oliveira@email.com', '(31) 98888-7777', '$2y$10$X7vRtY2bN8mK9pL3qW1s2u4oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 0, 0, 3),
@@ -148,9 +148,9 @@ JOIN locais l ON s.fkLocal = l.idLocal
 JOIN empresa e ON l.fkEmpresa = e.idEmpresa
 ORDER BY le.dataHoraLeitura DESC;
 
-select * from cliente;
+select * from usuario;
 
-drop table cliente;
+drop table usuario;
 
 select * from sensor;
 
