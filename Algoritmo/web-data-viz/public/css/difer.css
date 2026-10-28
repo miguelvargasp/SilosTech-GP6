@@ -1,3 +1,123 @@
+
+/* Configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
 body {
-background-color:whitesmoke;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202c40;
+    background-color: white;
+}
+
+/* Cabeçalho */
+.topo {
+    min-height: 65px;
+    padding: 0 7.2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e7ebf0;
+}
+
+/* Logo */
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #176b27;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.marca strong {
+    font-weight: bold;
+}
+
+.folha {
+    font-size: 28px;
+    line-height: 1;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu a {
+    color: #34435a;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.menu a:hover,
+.menu a.ativo {
+    color: #176b27;
+}
+
+/* Botão de login */
+.menu .botao-login {
+    padding: 13px 23px;
+    border-radius: 8px;
+    color: #176b27;
+    background-color: #e8f4e9;
+    font-weight: bold;
+}
+
+/* Área dos cartões */
+.recursos {
+    width: 83.5%;
+    max-width: 1200px;
+    margin: 153px auto 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+}
+
+/* Cartões */
+.cartao {
+    min-height: 140px;
+    padding: 25px 24px 22px;
+    border: 1px solid #dfe6ef;
+    border-radius: 14px;
+    background-color: white;
+}
+
+/* Título e ícone */
+.titulo-cartao {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 14px;
+}
+
+.icone {
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    color: #176b27;
+    background-color: #e8f4e9;
+    font-size: 24px;
+}
+
+/* Títulos dos cartões */
+.cartao h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Textos dos cartões */
+.cartao p {
+    margin: 0;
+    color: #526078;
+    font-size: 12px;
+    line-height: 1.7;
 }
