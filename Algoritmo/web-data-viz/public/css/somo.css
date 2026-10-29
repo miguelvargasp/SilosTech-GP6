@@ -26,7 +26,7 @@ body {
   padding: 0 10px;
 }
 
-.card {
+.card-sobre {
   border-radius: 48px;
   padding: 48px 44px;
   display: flex;
@@ -35,7 +35,7 @@ body {
   min-height: 382px;
 }
 
-h2 {
+.sobre h2 {
   font-family: "Outfit", sans-serif;
   font-weight: 700;
   text-align: center;

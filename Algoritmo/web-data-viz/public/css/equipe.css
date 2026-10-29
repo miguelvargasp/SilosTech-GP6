@@ -1,12 +1,16 @@
-*{
+/* Reset e fundo restritos a esta página/seção (não vazam para outras páginas) */
+body.pagina-equipe{
+    background:#f5f5f5;
+}
+
+.equipe,
+.equipe *,
+.equipe-rodape,
+.equipe-rodape *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f5f5f5;
 }
 
 /* Equipe */
@@ -16,7 +20,7 @@ body{
     margin:80px auto;
 }
 
-.subtitulo{
+.equipe-subtitulo{
     color:#2d7a3e;
     font-size:14px;
     font-weight:bold;
@@ -28,14 +32,14 @@ body{
     color:#1f2937;
 }
 
-.cards{
+.equipe-cards{
     display:flex;
     justify-content:space-between;
     gap:20px;
     flex-wrap:wrap;
 }
 
-.card{
+.equipe-card{
     width:180px;
     background:white;
     border-radius:15px;
@@ -44,7 +48,7 @@ body{
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
-.card img{
+.equipe-card img{
     width:90px;
     height:90px;
     border-radius:50%;
@@ -52,54 +56,54 @@ body{
     border:4px solid #d8e8d6;
 }
 
-.card h3{
+.equipe-card h3{
     margin:20px 0;
     color:#1f2937;
     font-size:18px;
 }
 
-.card i{
+.equipe-card i{
     color:#2d7a3e;
     font-size:22px;
 }
 
 /* Footer */
 
-footer{
+footer.equipe-rodape{
     background:#1d5f24;
     color:white;
     padding:60px 8%;
 }
 
-.footer{
+.equipe-rodape .rodape-colunas{
     display:flex;
     justify-content:space-between;
     gap:50px;
 }
 
-.footer div{
+.equipe-rodape .rodape-colunas > div{
     flex:1;
 }
 
-.footer p{
+.equipe-rodape .rodape-colunas p{
     margin-top:15px;
     line-height:28px;
 }
 
-.footer a{
+.equipe-rodape .rodape-colunas a{
     display:block;
     color:white;
     text-decoration:none;
     margin:15px 0;
 }
 
-.redes{
+.equipe-rodape .redes{
     display:flex;
     gap:15px;
     margin-top:20px;
 }
 
-.redes i{
+.equipe-rodape .redes i{
     width:40px;
     height:40px;
     background:#3d7b46;
@@ -110,24 +114,24 @@ footer{
     cursor:pointer;
 }
 
-hr{
+.equipe-rodape hr{
     margin:50px 0 30px;
     border:1px solid rgba(255,255,255,.2);
 }
 
-.copy{
+.equipe-rodape .copy{
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
 }
 
-.copy div{
+.equipe-rodape .copy div{
     display:flex;
     gap:25px;
 }
 
-.copy a{
+.equipe-rodape .copy a{
     color:white;
     text-decoration:none;
 }

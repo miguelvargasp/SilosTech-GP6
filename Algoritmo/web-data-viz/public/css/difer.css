@@ -1,10 +1,6 @@
 
-/* Configurações gerais */
-* {
-    box-sizing: border-box;
-}
-
-body {
+/* Configurações gerais (restritas à página de diferenciais) */
+body.pagina-difer {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #202c40;
