@@ -157,3 +157,15 @@ select * from sensor;
 select * from sensor join leitura on fkSensor = idSensor where dataHoraLeitura = '2026-10-23 13:12:44';
 
 select * from leitura order by valorLeitura desc;
+
+select * from leitura;
+
+SELECT
+  valorLeitura,
+  fkSensor,
+  CASE
+    WHEN valorLeitura < 80 THEN 'Alto - Acima de 80%'
+    WHEN valorLeitura BETWEEN 80 AND 240 THEN 'Normal - Entre 40% a 80%'
+    ELSE 'Baixa - Abaixo de 40%'
+  END AS metrica
+FROM leitura;
