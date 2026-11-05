@@ -90,6 +90,16 @@ a{
   flex-direction: column; 
   gap: 70px;
 }
+.baixo a.inferior{
+  color: white;
+}
+
+h4 :hover{
+background-color: #c1f0c1;
+color: #239023;
+padding: 10px 15px;
+border-radius: 12px
+}
 
 .direitos{
   display: flex;
