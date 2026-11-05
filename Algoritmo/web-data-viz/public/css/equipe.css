@@ -1,0 +1,137 @@
+/* Reset e fundo restritos a esta página/seção (não vazam para outras páginas) */
+body.pagina-equipe{
+    background:#f5f5f5;
+}
+
+.equipe,
+.equipe *,
+.equipe-rodape,
+.equipe-rodape *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Equipe */
+
+.equipe{
+    width:90%;
+    margin:80px auto;
+}
+
+.equipe-subtitulo{
+    color:#2d7a3e;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.equipe h1{
+    margin:15px 0 40px;
+    font-size:45px;
+    color:#1f2937;
+}
+
+.equipe-cards{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.equipe-card{
+    width:180px;
+    background:white;
+    border-radius:15px;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.equipe-card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #d8e8d6;
+}
+
+.equipe-card h3{
+    margin:20px 0;
+    color:#1f2937;
+    font-size:18px;
+}
+
+.equipe-card i{
+    color:#2d7a3e;
+    font-size:22px;
+}
+
+/* Footer */
+
+footer.equipe-rodape{
+    background:#1d5f24;
+    color:white;
+    padding:60px 8%;
+}
+
+.equipe-rodape .rodape-colunas{
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.equipe-rodape .rodape-colunas > div{
+    flex:1;
+}
+
+.equipe-rodape .rodape-colunas p{
+    margin-top:15px;
+    line-height:28px;
+}
+
+.equipe-rodape .rodape-colunas a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin:15px 0;
+}
+
+.equipe-rodape .redes{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.equipe-rodape .redes i{
+    width:40px;
+    height:40px;
+    background:#3d7b46;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+
+.equipe-rodape hr{
+    margin:50px 0 30px;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.equipe-rodape .copy{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.equipe-rodape .copy div{
+    display:flex;
+    gap:25px;
+}
+
+.equipe-rodape .copy a{
+    color:white;
+    text-decoration:none;
+}

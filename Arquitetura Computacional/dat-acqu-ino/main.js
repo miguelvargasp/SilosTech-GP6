@@ -67,13 +67,13 @@ const serial = async (
 
             await poolBancoDados.execute(
                 'INSERT INTO leitura (valorLeitura, fkSensor) VALUES (?, ?)',
-                [sensorDigital + 20, 2]
+                [sensorDigital + 160, 2]
             );
             console.log("valores inseridos no banco: ", sensorDigital + 20);
 
             await poolBancoDados.execute(
                 'INSERT INTO leitura (valorLeitura, fkSensor) VALUES (?, ?)',
-                [sensorDigital + 50, 3]
+                [sensorDigital + 240, 3]
             );
             console.log("valores inseridos no banco: ", sensorDigital + 50);
 
