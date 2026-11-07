@@ -368,3 +368,30 @@ button{
     flex-direction: column;
   }
 }
+
+/* Destaque para o KPI Monetário */
+.kpi-card.destaque-financeiro {
+  background: #eaf7ea;
+  border-left: 4px solid #239023;
+}
+
+.kpi-card.destaque-financeiro h4 {
+  color: #1b751b;
+  font-weight: bold;
+}
+
+/* KPI de Alerta Crítico (Média Mínima em Vermelho) */
+.kpi-card.alerta-critico {
+  background: #fdf2f2;
+  border-left: 4px solid #d9534f;
+}
+
+.kpi-card.alerta-critico span {
+  color: #a94442;
+  font-weight: 600;
+}
+
+.kpi-card.alerta-critico h4 {
+  color: #d9534f;
+  font-weight: bold;
+}

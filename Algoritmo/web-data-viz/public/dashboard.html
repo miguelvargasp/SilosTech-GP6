@@ -28,23 +28,29 @@
             <a href="#" >Configurações</a>
         </div>
 
-       
+       <!-- Novos KPIs focados em Negócio -->
+     <!-- KPIs do Topo com o Valor Monetário do Estoque -->
+    <!-- KPIs do Topo com a Média Mínima em Vermelho (Estoque Crítico) -->
         <div class="kpis-topo">
             <div class="kpi-card">
-                <span>ocupação média total (12 dias)</span>
-                <h4>56,67%</h4>
+                <span>Volume Atual (Soja)</span>
+                <h4 id="kpiVolume">1.420 Toneladas</h4>
             </div>
             <div class="kpi-card">
-                <span>Média máxima</span>
-                <h4>84%</h4>
+                <span>Capacidade Ocupada</span>
+                <h4 id="kpiOcupacao">71%</h4>
             </div>
-            <div class="kpi-card">
-                <span>Média mínima</span>
-                <h4>21%</h4>
+            <div class="kpi-card destaque-financeiro">
+                <span>Valor Monetário em Estoque</span>
+                <h4 id="kpiValorMonetario">R$ 3.053.000,00</h4>
+            </div>
+            <div class="kpi-card alerta-critico">
+                <span>Média Mínima (12 dias)</span>
+                <h4>21% ⚠️</h4>
             </div>
         </div>
 
-        
+        <!-- Gráfico Principal Ajustado -->
         <div class="grafico-baixo">
             <canvas id="graficoLinhas" class="dashboard"></canvas>
         </div>
@@ -83,42 +89,55 @@
 </html>
 
 <script>
+    // Configurações e Parâmetros de Negócio do Silo
+    const CAPACIDADE_MAX_SILO_TON = 2000; // Capacidade total do silo em Toneladas
+    const PRECO_TONELADA_SOJA = 2150.00;  // Preço estimado por Tonelada de Soja em Reais (R$)
     
-    const grafico = document.getElementById('graficoLinhas')
-    const donut = document.getElementById('donut')
-    new Chart(grafico,{
-        type:'line',
-        data:{
-            labels:[
-                '1º dia',
-                '2º dia',
-                '3º dia',
-                '4º dia',
-                '5º dia',
-                '6º dia',
-                '7º dia',
-                '8º dia',
-                '9º dia',
-                '10º dia',
-                '11º dia',
-                '12º dia'
-            ],
-            datasets:[
-                {
-                    label:'Média diária de ocupação do silo (em porcentagem)',
-                    data:[67, 70, 84, 70, 65, 54, 48, 21, 31, 40, 58, 72],
-                    borderColor:'green',
-                    backgroundColor: 'green'
-                }
-            ]
+    // Percentual atual lido pelo sensor ultrassônico (exemplo: 71%)
+    const percentualAtual = 71; 
+
+    // Cálculos de Negócio
+    const volumeAtualTon = (CAPACIDADE_MAX_SILO_TON * percentualAtual) / 100;
+    const valorTotalEstoque = volumeAtualTon * PRECO_TONELADA_SOJA;
+
+    // Atualização dos elementos na tela (Formatado como Moeda Brasileira R$)
+    document.getElementById('kpiOcupacao').innerText = `${percentualAtual}%`;
+    document.getElementById('kpiVolume').innerText = `${volumeAtualTon.toLocaleString('pt-BR')} Toneladas`;
+    document.getElementById('kpiValorMonetario').innerText = valorTotalEstoque.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    // Gráfico de Linhas Atualizado
+    const grafico = document.getElementById('graficoLinhas');
+    new Chart(grafico, {
+        type: 'line',
+        data: {
+            labels: ['1º dia', '2º dia', '3º dia', '4º dia', '5º dia', '6º dia', '7º dia', '8º dia', '9º dia', '10º dia', '11º dia', '12º dia'],
+            datasets: [{
+                label: 'Ocupação do Silo (%)',
+                data: [67, 70, 84, 70, 65, 54, 48, 21, 31, 40, 58, 72],
+                borderColor: '#239023',
+                backgroundColor: 'rgba(35, 144, 35, 0.15)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.3
+            }]
         },
-           options: {
-      scales: {
-        y: {
-          beginAtZero: true
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
         }
-      }
-    }
-    })
-    
+    });
 </script>
