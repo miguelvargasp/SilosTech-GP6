@@ -13,7 +13,7 @@ CREATE TABLE empresa (
 );
 
 --  LOCAIS (uma empresa pode ter vários locais) 
-CREATE TABLE locais (
+-- CREATE TABLE locais (
     idLocal INT PRIMARY KEY AUTO_INCREMENT,
     nomeLocal VARCHAR(100) NOT NULL,
     cepLocal CHAR(8),
