@@ -13,21 +13,21 @@ CREATE TABLE empresa (
 );
 
 --  LOCAIS (uma empresa pode ter vários locais) 
--- CREATE TABLE locais (
-    idLocal INT PRIMARY KEY AUTO_INCREMENT,
-    nomeLocal VARCHAR(100) NOT NULL,
-    cepLocal CHAR(8),
-    numeroLocal VARCHAR(10),
-    bairroLocal VARCHAR(50),
-    cidadeLocal VARCHAR(50),
-    estadoLocal CHAR(2),
-    complementoLocal VARCHAR(50),
-    statusLocal TINYINT NOT NULL DEFAULT 1,
-    fkEmpresa INT,
+--CREATE TABLE locais (
+    -- idLocal INT PRIMARY KEY AUTO_INCREMENT,
+    -- nomeLocal VARCHAR(100) NOT NULL,
+    -- cepLocal CHAR(8),
+    -- numeroLocal VARCHAR(10),
+    -- bairroLocal VARCHAR(50),
+    -- cidadeLocal VARCHAR(50),
+    -- estadoLocal CHAR(2),
+    -- complementoLocal VARCHAR(50),
+    -- statusLocal TINYINT NOT NULL DEFAULT 1,
+    -- fkEmpresa INT,
 
-    CONSTRAINT fk_locais_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-    CONSTRAINT chk_status_local CHECK (statusLocal IN (0, 1))
-);
+    --CONSTRAINT fk_locais_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+    --CONSTRAINT chk_status_local CHECK (statusLocal IN (0, 1))
+-- );
 
 --  CLIENTE (usuário que pertence a uma empresa) 
 CREATE TABLE usuario (
