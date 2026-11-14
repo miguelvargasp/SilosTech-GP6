@@ -1,58 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>SilosTech - Acesse sua conta</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
+    
     <div class="cima">
-      <img src="assets/logo.png" class="img">
+      <img src="assets/logo.png" alt="SilosTech" class="img">
       <div class="secao">
-      <h4><a href="index.html">Home</a></h4>
-      <h4><a href="cadastro.html">Cadastro</a></h4>
+        <a href="index.html" class="link-voltar">&#8592; Voltar ao site</a>
       </div>
     </div>
-    <div class="meio">
-      <h1 class="texto">Acesse sua conta</h1>
-      <label for="inp_email" class="campo">Email</label>
-      <input type="text" name="" id="inp_email" placeholder="Insira Seu Email">
-      <br>
-      <label for="inp_senha" class="campo">Senha</label>
-      <input type="password" name="" id="inp_senha" placeholder="Insira Sua Senha">
-      <br>
+    
+    <div class="conteudo-principal">
+      
+      <div class="bloco-esquerdo">
+        <span class="tag-topo">SILOSTECH / PLATAFORMA DE MONITORAMENTO</span>
+        <h1 class="titulo-banner">O campo não para.<br>Seu controle também não.</h1>
+        <p class="descricao-banner">Entre para acompanhar seus silos, consultar o histórico e manter as decisões conectadas ao seu estoque.</p>
+        
+        <div class="card-imagem">
+          <img src="assets/imgsilo.png" alt="Silo" class="img-silo">
+          <div class="badge-silo">
+            <span class="ponto-verde">&#9679;</span> Seu estoque, sempre à vista.
+          </div>
+        </div>
+      </div>
+
+      <div class="meio-login">
+        <span class="sub-topo">BEM-VINDO DE VOLTA</span>
+        <h1 class="titulo-login">Acesse sua conta</h1>
+        <p class="sub-texto">Continue de onde parou no monitoramento.</p>
+        
+        <label for="inp_email" class="campo">E-mail corporativo</label>
+        <input type="text" id="inp_email" placeholder="voce@empresa.com.br" class="digitar">
+        
+        <div class="grupo-senha">
+          <label for="inp_senha" class="campo">Senha</label>
+          <a href="#" class="esqueci-senha">Esqueci minha senha</a>
+        </div>
+        
+        <div class="input-senha-box">
+          <input type="password" id="inp_senha" placeholder="Digite sua senha" class="digitar">
+          <span class="mostrar-senha">Mostrar</span>
+        </div>
+
+        <div class="lembrar-box">
+          <input type="checkbox" id="lembrar">
+          <label for="lembrar">Manter conectado</label>
+        </div>
    
-    <button onclick="entrar()" class="botao">entre agora</button>
-    <p class="conta">ainda não possui conta? <a href="cadastro.html" class="cadastro"> Cadastre-se </a></p>
-     </div>
-    <div class="baixo">
-      <div class="contatos">
-        <div class="coluna-1">
-        <img src="silos.png" alt="" class="img">
-        <p>Tecnologia de hardware e software IoT dedicada ao <br> agronegócio de alta produtividade. Sensores <br> precisos, decisões rápidas.</p>
-        </div>
-        <div class="coluna-2">
-          <h2>Links Rápidos</h2>
-          <p> <a href="sobre.html" class="inferior"> Sobre Nós</a></p>
-        </div>
-        <div class="coluna-3">
-          <h2>Contato</h2>
-          <p>contato@silostech.com.br</p>
-          <p>+55 (11) 4002-8922</p>
-          <p>São Paulo, São Paulo - Brasil</p>
-        </div>
+        <button onclick="entrar()" class="botao">Entrar no painel &rarr;</button>
+        <p class="conta">Ainda não tem uma conta? <a href="cadastro.html" class="cadastro">Cadastrar empresa &rarr;</a></p>
       </div>
-      <div class="direitos">
-        <p>© 2026 SilosTech. Todos os direitos reservados.</p>
-        <p>Política de Privacidade</p>
-        <p>Termos de Serviço</p>
+
+    </div>
+
+    <div class="baixo-login">
+      <div class="direitos-rodape">
+        <p>&copy; 2026 SilosTech</p>
+        <p>Precisa de ajuda? contato@silostech.com.br</p>
       </div>
     </div>
+
   </div>
 </body>
 </html>
+
+<script>
+    function entrar() {
+        let emailVar = inp_email.value;
+        let senhaVar = inp_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert("Preencha todos os campos!");
+            return false;
+        } else {
+            console.log("FORM LOGIN: ", emailVar);
+            window.location.href = "index.html";
+            return false;
+        }
+    }
+</script>
 <script>
 
     function entrar() {

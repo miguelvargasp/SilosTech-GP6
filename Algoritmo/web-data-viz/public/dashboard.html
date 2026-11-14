@@ -1,143 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Monitoramento inteligente | SilosTech</title>
     <link rel="stylesheet" href="css/style.css">
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-     <div class="cima">
-        <img src="assets/logo.png" class="img">
-        <div class="secao">
-            <h4><a href="homeLog.html">Home</a></h4>
-            <h4><a href="calculadora.html">Calculadora financeira</a></h4>
-            <h4><a href="dashboard.html">Dashboard </a></h4>
-        </div>
-    </div>
-    <h1 style="text-align: center; margin-top: 30px;" class="texto">MONITORAMENTO DE SILOS</h1>
-    
-    <div class="DashMeio">
+    <div class="dash-layout">
         
-       
-        <div class="itens-esquerda">
-            <a href="#">Visão Geral</a>
-            <a href="#" >Silos Ativos</a>
-            <a href="#" >Configurações</a>
-        </div>
+        <!-- Barra Lateral Esquerda -->
+        <aside class="dash-sidebar">
+            <div>
+                <div class="dash-logo-area">
+                    <img src="assets/silos.png" alt="SilosTech" class="img">
+                    <span class="dash-sub-logo">PLATAFORMA DE MONITORAMENTO</span>
+                </div>
 
-       <!-- Novos KPIs focados em Negócio -->
-     <!-- KPIs do Topo com o Valor Monetário do Estoque -->
-    <!-- KPIs do Topo com a Média Mínima em Vermelho (Estoque Crítico) -->
-        <div class="kpis-topo">
-            <div class="kpi-card">
-                <span>Volume Atual (Soja)</span>
-                <h4 id="kpiVolume">1.420 Toneladas</h4>
+                <nav class="dash-menu">
+                    <a href="dashboard2.html" class="ativo">Visão geral</a>
+                    <a href="#silos">Meus silos</a>
+                    <a href="#grafico">Histórico</a>
+                    <a href="calculadora.html">Calculadora</a>
+                    <a href="homeLog.html">Home</a>
+                </nav>
             </div>
-            <div class="kpi-card">
-                <span>Capacidade Ocupada</span>
-                <h4 id="kpiOcupacao">71%</h4>
+
+            <div class="dash-sidebar-rodape">
+                <div class="dash-ajuda-card">
+                    <h4>Precisa de ajuda?</h4>
+                    <p>Conte com a SilosTech para dar o próximo passo.</p>
+                    <a href="sobre.html">Fale com a equipe &rarr;</a>
+                </div>
+                <a href="login.html" class="dash-sair">Sair da plataforma</a>
             </div>
-            <div class="kpi-card destaque-financeiro">
-                <span>Valor Monetário em Estoque</span>
-                <h4 id="kpiValorMonetario">R$ 3.053.000,00</h4>
-            </div>
-            <div class="kpi-card alerta-critico">
-                <span>Média Mínima (12 dias)</span>
-                <h4>21% ⚠️</h4>
-            </div>
-        </div>
+        </aside>
 
-        <!-- Gráfico Principal Ajustado -->
-        <div class="grafico-baixo">
-            <canvas id="graficoLinhas" class="dashboard"></canvas>
-        </div>
+        <!-- Área Principal Direita -->
+        <div class="dash-area-principal">
+            
+            <!-- Barra Superior -->
+            <header class="dash-topbar">
+                <div class="localizacao">
+                    <span class="localizacao-ponto"></span>
+                    <strong>Fazenda Bela Vista · SP</strong>
+                </div>
+                <div class="dash-user-info">
+                    <span class="dash-badge-demo">CENTRAL DE MONITORAMENTO</span>
+                </div>
+            </header>
 
+            <!-- Conteúdo do Dashboard -->
+            <main class="dashboard-main">
+                
+                <!-- Título e Subtítulo -->
+                <div class="dashboard-cabecalho">
+                    <div>
+                        <h1 class="texto">Visão estratégica do estoque de grãos</h1>
+                        <p class="subtitulo">Acompanhe a ocupação, o valor armazenado e a evolução do silo.</p>
+                    </div>
+                </div>
+
+                <!-- Linha de KPIs (Seus dados e IDs exatos) -->
+                <section class="kpis-topo" aria-label="Indicadores principais">
+                    <article class="kpi-card kpi-total">
+                        <div class="kpi-topo">
+                            <span>Total armazenado</span>
+                        </div>
+                        <h2 id="kpiVolume">1.420 t</h2>
+                        <p>Estoque atual de soja</p>
+                    </article>
+
+                    <article class="kpi-card">
+                        <div class="kpi-topo">
+                            <span>Capacidade ocupada</span>
+                        </div>
+                        <h2 id="kpiOcupacao">71%</h2>
+                        <div class="barra-progresso-dash"><span style="width: 71%"></span></div>
+                        <p>Capacidade total: 2.000 toneladas</p>
+                    </article>
+
+                    <article class="kpi-card destaque-financeiro">
+                        <div class="kpi-topo">
+                            <span>Valor monetário em estoque</span>
+                        </div>
+                        <h2 id="kpiValorMonetario">R$ 3.053.000,00</h2>
+                        <p>Estimativa baseada no preço por tonelada</p>
+                    </article>
+                </section>
+
+                <!-- Bloco do Meio: Gráfico na Esquerda + Card Verde Escuro de Alerta na Direita -->
+                <section class="dash-meio-grid" id="grafico">
+                    
+                    <div class="painel-grafico">
+                        <div class="grafico-cabecalho">
+                            <div>
+                                <h2>Evolução da ocupação do silo</h2>
+                                <p>Variação percentual registrada ao longo dos últimos dias.</p>
+                            </div>
+                            <label class="filtro-periodo">
+                                <select id="filtroPeriodo" aria-label="Selecionar período do gráfico">
+                                    <option value="12">Últimos 12 dias</option>
+                                    <option value="7">Últimos 7 dias</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="grafico-baixo">
+                            <canvas id="graficoLinhas" class="dashboard" aria-label="Gráfico de evolução da ocupação do silo"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Card Verde Escuro (Média mínima / Alerta) -->
+                    <div class="card-status-escuro">
+                        <div>
+                            <h3>Média mínima · 12 dias</h3>
+                            <div class="status-badge-limao">
+                                <span class="ponto-limao">&#9679;</span> Menor nível registrado: 21%
+                            </div>
+                            <p class="status-desc">Acompanhe o menor nível de ocupação registrado no período para evitar desabastecimento.</p>
+                        </div>
+
+                        <div class="status-rodape-card">
+                            <hr class="divisor-escuro">
+                            <p class="status-info-extra">Status: Monitoramento ativo</p>
+                            <span class="status-link">Indicadores disponíveis &rarr;</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Bloco Inferior: Resumo do Silo em formato de tabela limpa igual ao protótipo -->
+                <section class="resumo-silo-tabela" id="silos">
+                    <div class="tabela-cabecalho">
+                        <h2>Silo monitorado</h2>
+                        <span>Atualizado em tempo real</span>
+                    </div>
+
+                    <div class="tabela-colunas-titulo">
+                        <span class="col-silo">SILO</span>
+                        <span class="col-grao">GRÃO</span>
+                        <span class="col-ocupacao">OCUPAÇÃO</span>
+                        <span class="col-volume">VOLUME</span>
+                        <span class="col-sensor">SENSOR</span>
+                    </div>
+
+                    <div class="tabela-linha-dado">
+                        <strong class="col-silo">Silo principal #01</strong>
+                        <span class="col-grao">Soja</span>
+                        <div class="col-ocupacao">
+                            <strong>71%</strong>
+                            <div class="barra-tabela-fundo">
+                                <div class="barra-tabela-preenchida" style="width: 71%;"></div>
+                            </div>
+                        </div>
+                        <span class="col-volume">1.420 / 2.000 t <small>(580 t livres)</small></span>
+                        <span class="col-sensor status-conectado-texto">&#9679; Monitoramento ativo</span>
+                    </div>
+                </section>
+
+            </main>
+        </div>
     </div>
-    </div>
 
-    <div class="baixo">
-      <div class="contatos">
-        <div class="coluna-1">
-        <img src="silos.png" alt="" class="img">
-        <p>Tecnologia de hardware e software IoT dedicada ao <br> agronegócio de alta produtividade. Sensores <br> precisos, decisões rápidas.</p>
-        </div>
-        <div class="coluna-2">
-          <h2>Links Rápidos</h2>
-          <p> <a href="sobre.html" class="inferior"> Sobre Nós</a></p>
-          <p> <a href="calculadora.html" class="inferior">Calculadora</a></p>
-          <p><a href="Monitoramento.html"class="inferior">Monitoramento</a></p>
-        </div>
-        <div class="coluna-3">
-          <h2>Contato</h2>
-          <p>contato@silostech.com.br</p>
-          <p>+55 (11) 4002-8922</p>
-          <p>São Paulo, São Paulo - Brasil</p>
-        </div>
-       
-      </div>
-      <div class="direitos">
-        <p>© 2026 SilosTech. Todos os direitos reservados.</p>
-        <p>Política de Privacidade</p>
-        <p>Termos de Serviço</p>
-      </div>
-    </div>
-    </div>
-</body>
-</html>
+    <script>
+        // Parâmetros de negócio mantidos 100% iguais ao original
+        const CAPACIDADE_MAX_SILO_TON = 2000;
+        const PRECO_TONELADA_SOJA = 2150.00;
+        const percentualAtual = 71;
 
-<script>
-    // Configurações e Parâmetros de Negócio do Silo
-    const CAPACIDADE_MAX_SILO_TON = 2000; // Capacidade total do silo em Toneladas
-    const PRECO_TONELADA_SOJA = 2150.00;  // Preço estimado por Tonelada de Soja em Reais (R$)
-    
-    // Percentual atual lido pelo sensor ultrassônico (exemplo: 71%)
-    const percentualAtual = 71; 
+        const volumeAtualTon = (CAPACIDADE_MAX_SILO_TON * percentualAtual) / 100;
+        const valorTotalEstoque = volumeAtualTon * PRECO_TONELADA_SOJA;
 
-    // Cálculos de Negócio
-    const volumeAtualTon = (CAPACIDADE_MAX_SILO_TON * percentualAtual) / 100;
-    const valorTotalEstoque = volumeAtualTon * PRECO_TONELADA_SOJA;
+        document.getElementById('kpiOcupacao').textContent = `${percentualAtual}%`;
+        document.getElementById('kpiVolume').textContent =
+            `${volumeAtualTon.toLocaleString('pt-BR')} t`;
+        document.getElementById('kpiValorMonetario').textContent =
+            valorTotalEstoque.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
 
-    // Atualização dos elementos na tela (Formatado como Moeda Brasileira R$)
-    document.getElementById('kpiOcupacao').innerText = `${percentualAtual}%`;
-    document.getElementById('kpiVolume').innerText = `${volumeAtualTon.toLocaleString('pt-BR')} Toneladas`;
-    document.getElementById('kpiValorMonetario').innerText = valorTotalEstoque.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
+        const dias = ['1º dia', '2º dia', '3º dia', '4º dia', '5º dia', '6º dia',
+                      '7º dia', '8º dia', '9º dia', '10º dia', '11º dia', '12º dia'];
+        const ocupacao = [67, 70, 84, 70, 65, 54, 48, 21, 31, 40, 58, 72];
 
-    // Gráfico de Linhas Atualizado
-    const grafico = document.getElementById('graficoLinhas');
-    new Chart(grafico, {
-        type: 'line',
-        data: {
-            labels: ['1º dia', '2º dia', '3º dia', '4º dia', '5º dia', '6º dia', '7º dia', '8º dia', '9º dia', '10º dia', '11º dia', '12º dia'],
-            datasets: [{
-                label: 'Ocupação do Silo (%)',
-                data: [67, 70, 84, 70, 65, 54, 48, 21, 31, 40, 58, 72],
-                borderColor: '#239023',
-                backgroundColor: 'rgba(35, 144, 35, 0.15)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.3
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
+        const contextoGrafico = document.getElementById('graficoLinhas');
+        const grafico = new Chart(contextoGrafico, {
+            type: 'line',
+            data: {
+                labels: dias,
+                datasets: [{
+                    label: 'Ocupação do silo',
+                    data: ocupacao,
+                    borderColor: '#166534',
+                    backgroundColor: 'rgba(22, 101, 52, 0.08)',
+                    borderWidth: 2.5,
+                    pointRadius: 3,
+                    pointHoverRadius: 6,
+                    pointBackgroundColor: '#166534',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    fill: true,
+                    tension: 0.25
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f221a',
+                        padding: 12,
+                        displayColors: false,
+                        callbacks: {
+                            label: context => `Ocupação: ${context.parsed.y}%`
                         }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#748078' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: '#748078',
+                            callback: value => `${value}%`,
+                            stepSize: 20
+                        },
+                        grid: { color: 'rgba(30, 60, 40, 0.06)' }
                     }
                 }
             }
-        }
-    });
-</script>
+        });
+
+        document.getElementById('filtroPeriodo').addEventListener('change', function () {
+            const quantidade = Number(this.value);
+            grafico.data.labels = dias.slice(-quantidade);
+            grafico.data.datasets[0].data = ocupacao.slice(-quantidade);
+            grafico.update();
+        });
+    </script>
+</body>
+</html>

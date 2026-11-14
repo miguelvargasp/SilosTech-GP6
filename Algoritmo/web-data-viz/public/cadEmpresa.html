@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SilosTech - Cadastre sua empresa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Topo / Header -->
+    <div class="cima">
+      <img src="assets/logo.png" alt="SilosTech" class="img">
+      <div class="secao">
+        <a href="login.html" class="link-entrar-topo">Já tem uma conta? Entrar</a>
+        <a href="index.html" class="link-voltar">&#8592; Voltar ao site</a>
+      </div>
+    </div>
+    
+    <!-- Conteúdo Principal em Duas Colunas -->
+    <div class="conteudo-principal">
+      
+      <!-- Bloco Esquerdo (Passos do Cadastro) -->
+      <div class="bloco-esquerdo bloco-esquerdo-cadastro">
+        <div>
+          <span class="tag-topo">COMECE PELA SUA EMPRESA</span>
+          <h1 class="titulo-banner">O controle começa aqui.</h1>
+          <p class="descricao-banner">Organize sua operação e prepare seus silos para o monitoramento.</p>
+          
+          <div class="lista-etapas">
+            <div class="etapa-item">
+              <span class="etapa-bolinha etapa-ativa">1</span>
+              <div class="etapa-texto">
+                <h3>Cadastre a empresa</h3>
+                <p>Crie o acesso do responsável.</p>
+              </div>
+            </div>
+
+            <div class="etapa-item">
+              <span class="etapa-bolinha">2</span>
+              <div class="etapa-texto">
+                <h3>Configure seu primeiro silo</h3>
+                <p>Informe os dados de armazenagem.</p>
+              </div>
+            </div>
+
+            <div class="etapa-item">
+              <span class="etapa-bolinha">3</span>
+              <div class="etapa-texto">
+                <h3>Acompanhe o estoque</h3>
+                <p>Tenha uma visão da sua operação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="rodape-banner-cadastro">Seus dados ficam associados à empresa cadastrada.</p>
+      </div>
+
+      <!-- Bloco Direito (Formulário de Cadastro) -->
+      <div class="meio-cadastro">
+        <span class="sub-topo">ETAPA 1 DE 2</span>
+        <h1 class="titulo-login">Cadastre sua empresa</h1>
+        <p class="sub-texto">Preencha os dados da empresa e de quem vai gerenciar os silos.</p>
+        
+        <h2 class="titulo-secao-form">Dados da empresa</h2>
+        
+        <div class="linha-campos">
+          <div class="grupo-campo campo-35">
+            <label for="inp_cnpj" class="campo">CNPJ *</label>
+            <input type="text" id="inp_cnpj" placeholder="Digite o CNPJ"class="digitar">
+          </div>
+          <div class="grupo-campo campo-65">
+            <label for="inp_razao" class="campo">Razão social *</label>
+            <input type="text" id="inp_razao" placeholder="Nome da empresa"class="digitar">
+          </div>
+        </div>
+
+        <div class="linha-campos">
+          <div class="grupo-campo campo-65">
+            <label for="inp_cidade" class="campo">Cidade *</label>
+            <input type="text" id="inp_cidade" placeholder="Cidade da empresa"class="digitar">
+          </div>
+          <div class="grupo-campo campo-35">
+            <label for="sel_estado" class="campo">Estado *</label>
+            <select id="sel_estado">
+              <option value="">Selecione</option>
+              <option value="SP">SP</option>
+              <option value="MG">MG</option>
+              <option value="MT">MT</option>
+              <option value="PR">PR</option>
+              <option value="RS">RS</option>
+              <option value="GO">GO</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="divisor-form">
+
+        <h2 class="titulo-secao-form">Responsável pela conta</h2>
+
+        <div class="linha-campos">
+          <div class="grupo-campo campo-65">
+            <label for="inp_nome" class="campo">Nome completo *</label>
+            <input type="text" id="inp_nome" placeholder="Como você se chama?"class="digitar">
+          </div>
+          <div class="grupo-campo campo-35">
+            <label for="inp_telefone" class="campo">Telefone *</label>
+            <input type="text" id="inp_telefone" placeholder="(00) 00000-0000"class="digitar">
+          </div>
+        </div>
+
+        <div class="grupo-campo">
+          <label for="inp_email_cad" class="campo">E-mail corporativo *</label>
+          <input type="text" id="inp_email_cad" placeholder="voce@empresa.com.br"class="digitar">
+        </div>
+
+        <div class="linha-campos">
+          <div class="grupo-campo campo-50">
+            <label for="inp_senha_cad" class="campo">Senha *</label>
+            <input type="password" id="inp_senha_cad" placeholder="Crie uma senha"class="digitar">
+          </div>
+          <div class="grupo-campo campo-50">
+            <label for="inp_conf_senha" class="campo">Confirmar senha *</label>
+            <input type="password" id="inp_conf_senha" placeholder="Repita sua senha"class="digitar">
+          </div>
+        </div>
+        <span class="dica-senha">Use pelo menos 8 caracteres, incluindo letras e números.</span>
+
+        <div class="lembrar-box">
+          <input type="checkbox" id="aceito_termos">
+          <label for="aceito_termos">Li e aceito os Termos de Uso e a Política de Privacidade.</label>
+        </div>
+   
+        <button onclick="cadastrar()" class="botao">Criar conta e configurar meu silo &rarr;</button>
+      </div>
+
+    </div>
+
+    <!-- Rodapé -->
+    <div class="baixo-login">
+      <div class="direitos-rodape">
+        <p>&copy; 2026 SilosTech</p>
+        <p>Precisa de ajuda? contato@silostech.com.br</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+
+<script>
+  function cadastrar() {
+    let cnpjVar = inp_cnpj.value;
+    let razaoVar = inp_razao.value;
+    let cidadeVar = inp_cidade.value;
+    let estadoVar = sel_estado.value;
+    let nomeVar = inp_nome.value;
+    let telefoneVar = inp_telefone.value;
+    let emailVar = inp_email_cad.value;
+    let senhaVar = inp_senha_cad.value;
+    let confirmacaoVar = inp_conf_senha.value;
+
+    if (cnpjVar == "" || razaoVar == "" || cidadeVar == "" || estadoVar == "" || nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" || confirmacaoVar == "") {
+      alert("Preencha todos os campos obrigatórios!");
+      return false;
+    }
+
+    if (senhaVar != confirmacaoVar) {
+      alert("As senhas não coincidem!");
+      return false;
+    }
+
+    if (!aceito_termos.checked) {
+      alert("Você precisa aceitar os Termos de Uso e a Política de Privacidade.");
+      return false;
+    }
+
+    alert("Empresa cadastrada com sucesso!");
+    window.location.href = "login.html";
+  }
+</script>

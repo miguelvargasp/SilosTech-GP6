@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SilosTech - Configure seu primeiro silo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Topo / Header -->
+    <div class="cima">
+      <img src="assets/logo.png" alt="SilosTech" class="img">
+      <div class="secao">
+        <a href="index.html" class="link-voltar">&#8592; Voltar ao site</a>
+      </div>
+    </div>
+    
+    <!-- Conteúdo Principal em Duas Colunas -->
+    <div class="conteudo-principal">
+      
+      <!-- Bloco Esquerdo (Passos com o Passo 1 Concluído) -->
+      <div class="bloco-esquerdo bloco-esquerdo-cadastro">
+        <div>
+          <span class="tag-topo">SUA EMPRESA, SEUS SILOS</span>
+          <h1 class="titulo-banner">Tudo pronto para o próximo passo.</h1>
+          <p class="descricao-banner">Cadastre o primeiro silo e organize os dados que você vai acompanhar.</p>
+          
+          <div class="lista-etapas">
+            <div class="etapa-item">
+              <span class="etapa-bolinha etapa-concluida">&#10003;</span>
+              <div class="etapa-texto">
+                <h3>Empresa cadastrada</h3>
+                <p>O responsável já tem seu acesso.</p>
+              </div>
+            </div>
+
+            <div class="etapa-item">
+              <span class="etapa-bolinha etapa-ativa">2</span>
+              <div class="etapa-texto">
+                <h3>Configure seu primeiro silo</h3>
+                <p>Defina capacidade e tipo de grão.</p>
+              </div>
+            </div>
+
+            <div class="etapa-item">
+              <span class="etapa-bolinha">3</span>
+              <div class="etapa-texto">
+                <h3>Acompanhe o estoque</h3>
+                <p>Veja os dados após conectar o sensor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="rodape-banner-cadastro">O monitoramento começa com o sensor instalado e conectado.</p>
+      </div>
+
+      <!-- Bloco Direito (Formulário do Silo) -->
+      <div class="meio-cadastro">
+        <span class="sub-topo">ETAPA 2 DE 2</span>
+        <h1 class="titulo-login">Configure seu primeiro silo</h1>
+        <p class="sub-texto">As informações abaixo ajudam a organizar o monitoramento.</p>
+        
+        <div class="grupo-campo">
+          <label for="inp_nome_silo" class="campo">Nome do silo *</label>
+          <input type="text" id="inp_nome_silo" placeholder="Ex.: Silo principal #01" class="digitar">
+        </div>
+
+        <div class="linha-campos">
+          <div class="grupo-campo campo-50">
+            <label for="sel_grao" class="campo">Tipo de grão *</label>
+            <select id="sel_grao">
+              <option value="">Selecione o grão</option>
+              <option value="Soja">Soja</option>
+              <option value="Milho">Milho</option>
+              <option value="Trigo">Trigo</option>
+              <option value="Café">Café</option>
+            </select>
+          </div>
+          <div class="grupo-campo campo-50">
+            <label for="inp_capacidade" class="campo">Capacidade total (t) *</label>
+            <input type="text" id="inp_capacidade" placeholder="Ex.: 500" class="digitar">
+          </div>
+        </div>
+
+        <div class="linha-campos">
+          <div class="grupo-campo campo-50">
+            <label for="inp_altura" class="campo">Altura interna (m) *</label>
+            <input type="text" id="inp_altura" placeholder="Ex.: 12" class="digitar">
+          </div>
+          <div class="grupo-campo campo-50">
+            <label for="inp_sensor" class="campo">Identificador do sensor</label>
+            <input type="text" id="inp_sensor" placeholder="Informe o ID do dispositivo" class="digitar">
+          </div>
+        </div>
+        <span class="dica-senha" style="margin-top: -10px;">Você pode vincular o sensor depois, nas configurações do silo.</span>
+
+        <h2 class="titulo-secao-form" style="margin-top: 10px;">Limite de estoque baixo</h2>
+        <p class="sub-texto" style="margin-bottom: 15px;">Receba um aviso quando o nível ficar abaixo deste percentual.</p>
+
+        <div class="linha-campos align-center">
+          <div class="grupo-campo campo-35">
+            <label for="inp_percentual" class="campo">Percentual mínimo de ocupação</label>
+            <input type="text" id="inp_percentual" value="20%" class="digitar">
+          </div>
+          <div class="grupo-campo campo-65">
+            <div class="aviso-box">
+              <p>O cadastro não substitui a instalação física.<br>Os dados chegam após a conexão do sensor.</p>
+            </div>
+          </div>
+        </div>
+   
+        <button onclick="salvarSilo()" class="botao" style="margin-top: 15px;">Salvar silo e abrir painel &rarr;</button>
+        <a href="cadastro.html" class="link-voltar-etapa">&larr; Voltar aos dados da empresa</a>
+      </div>
+
+    </div>
+
+    <!-- Rodapé -->
+    <div class="baixo-login">
+      <div class="direitos-rodape">
+        <p>&copy; 2026 SilosTech</p>
+        <p>Precisa de ajuda? contato@silostech.com.br</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+
+<script>
+  function salvarSilo() {
+    let nomeSilo = inp_nome_silo.value;
+    let tipoGrao = sel_grao.value;
+    let capacidade = inp_capacidade.value;
+    let altura = inp_altura.value;
+
+    if (nomeSilo == "" || tipoGrao == "" || capacidade == "" || altura == "") {
+      alert("Preencha todos os campos obrigatórios do silo!");
+      return false;
+    }
+
+    alert("Silo configurado com sucesso! Abrindo o painel...");
+    window.location.href = "index.html";
+  }
+</script>

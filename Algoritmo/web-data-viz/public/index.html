@@ -1,84 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/paginainicial.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>SilosTech - Monitoramento Inteligente</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         
         <div class="cima">
+            <img src="assets/logo.png" alt="SilosTech" class="img">
 
-            <img src="assets/logo.png" class="img">
-
-            <div class="secao">
-                <h4><a href="cadastro.html">Cadastro</a></h4>
-                <h4><a href="login.html">login</a></h4>
-
+            <div class="menu-links">
+                <a href="index.html" class="ativo">Início</a>
+                <a href="soluçao.html">A solução</a>
+                <a href="sobre.html">Sobre nós</a>
+                <a href="#calculadora">Calculadora</a>
             </div>
 
+            <div class="secao">
+                <a href="login.html" class="link-entrar">Entrar</a>
+                <a href="cadastro.html" class="btn-topo">Cadastrar empresa</a>
+            </div>
         </div>
 
-        <div class="meio">
-
-            <div class="meio1">
-
-                <h1>Monitore o seu estoque do seu <br> em tempo real</h1>
-                <p>Um sistema inteligente de sensores Arduino integrados que medem o nível de grãos continuamente, enviando dados cruciais de armazenagem direto para o seu painel de controle. Evite perdas e tome decisões guiadas por dados.</p>
+        <div class="meio-inicio">
+            <div class="meio-conteudo">
                 
-                <div class="texto">
+                <div class="meio1">
+                    <span class="tag-topo">MONITORAMENTO INTELIGENTE DE SILOS</span>
+                    <h1>Seu estoque à vista.<br>Sua operação<br>no controle.</h1>
+                    <p>Acompanhe o nível dos seus grãos em tempo real. Transforme medições automáticas em decisões mais seguras para a sua produção.</p>
+                    
+                    <div class="botoes-hero">
+                        <a href="cadastro.html" class="btn-verde-limao">Cadastrar minha empresa &rarr;</a>
+                        <a href="sobre.html" class="btn-escuro">Conhecer a solução</a>
+                    </div>
 
-                    Monitoramento ativo 24/7
+                    <div class="texto">
+                        Sensores conectados &nbsp;/&nbsp; Alertas de estoque &nbsp;/&nbsp; Histórico
+                    </div>
+                </div>
 
+                <div class="meio2">
+                    <div class="card-silo-hero">
+                        <img src="assets/imgsilo.png" alt="Silo" class="img-silo-hero">
+                        
+                        <div class="badge-topo-silo">
+                            <span class="ponto-verde">&#9679;</span> DADOS EM TEMPO REAL
+                        </div>
+
+                        <div class="card-status-silo">
+                            <div class="status-linha-1">
+                                <span>Silo principal #01</span>
+                                <span class="conectado">&#9679; Conectado</span>
+                            </div>
+                            <h2>75%</h2>
+                            <p>375 t de soja armazenadas</p>
+                            <div class="barra-fundo">
+                                <div class="barra-progresso"></div>
+                            </div>
+                            <span class="legenda-card">Visualização ilustrativa da plataforma</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+        </div>
 
-            <div class="meio2">
+        <div class="secao-passos" id="solucao">
+            <div class="passos-conteudo">
+                <h2 class="titulo-passos">Uma plataforma. O próximo passo é seu.</h2>
+                
+                <div class="lista-cards">
+                    <div class="card-passo">
+                        <span class="num-passo">01</span>
+                        <h3>Entenda a tecnologia</h3>
+                        <p>Veja como o sensor mede, transmite e organiza os dados do seu estoque.</p>
+                        <a href="#" class="link-passo">Explorar a solução &rarr;</a>
+                    </div>
 
-                <img src="assets/imgsilo.png" width="300 px" height="300 px" style="border-radius: 12px;">
+                    <div class="card-passo">
+                        <span class="num-passo">02</span>
+                        <h3>Planeje o investimento</h3>
+                        <p>Simule o potencial de economia de acordo com a realidade da sua armazenagem.</p>
+                        <a href="#" class="link-passo">Abrir calculadora &rarr;</a>
+                    </div>
 
+                    <div class="card-passo">
+                        <span class="num-passo">03</span>
+                        <h3>Comece pela sua empresa</h3>
+                        <p>Cadastre a empresa e configure o primeiro silo para organizar o monitoramento.</p>
+                        <a href="cadastro.html" class="link-passo">Cadastrar empresa &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-chamada">
+            <div class="chamada-conteudo">
+                <div class="chamada-texto">
+                    <h2>Mais visibilidade para a sua próxima safra.</h2>
+                    <p>Sua empresa, seus silos e seus dados em um só lugar.</p>
+                </div>
+                <a href="cadastro.html" class="btn-escuro-solido">Cadastrar minha empresa &rarr;</a>
+            </div>
+        </div>
+
+        <div class="baixo">
+            <div class="contatos">
+                <div class="coluna-1">
+                    <img src="assets/silos.png" alt="SilosTech" class="img">
+                    <p>Tecnologia no campo.<br>Inteligência para o seu estoque.</p>
+                </div>
+
+                <div class="coluna-2">
+                    <span class="titulo-rodape">EXPLORE</span>
+                    <div class="links-duplos">
+                        <a href="#solucao" class="inferior">A solução</a>
+                        <a href="sobre.html" class="inferior">Sobre nós</a>
+                        <a href="#calculadora" class="inferior">Calculadora</a>
+                        <a href="login.html" class="inferior">Entrar</a>
+                    </div>
+                </div>
+
+                <div class="coluna-3">
+                    <span class="titulo-rodape">FALE COM A SILOSTECH</span>
+                    <p>contato@silostech.com.br</p>
+                    <p>+55 (11) 4002-8922</p>
+                </div>
             </div>
 
+            <div class="direitos">
+                <p>&copy; 2026 SilosTech. Todos os direitos reservados.</p>
+                <div class="direitos-links">
+                    <a href="#" class="inferior">Política de Privacidade</a>
+                    <a href="#" class="inferior">Termos de Serviço</a>
+                </div>
+            </div>
         </div>
-
-      <div class="baixo">
-
-        <div class="contatos">
-
-        <div class="coluna-1">
-
-        <img src="assets/silos.png" alt="" class="img">
-        <p>Tecnologia de hardware e software IoT dedicada ao <br> agronegócio de alta produtividade. Sensores <br> precisos, decisões rápidas.</p>
-        
-        </div>
-
-      
-
-        <div class="coluna-3">
-
-          <h2>Contato</h2>
-          <p>contato@silostech.com.br</p>
-          <p>+55 (11) 4002-8922</p>
-          <p>São Paulo, São Paulo - Brasil</p>
-
-        </div>
-      </div>
-
-      <div class="direitos">
-
-        <p>© 2026 SilosTech. Todos os direitos reservados.</p>
-      
-        <p>Termos de Serviço</p>
-
-      </div>
-
-      </div>
 
     </div>
-    
 </body>
 </html>
