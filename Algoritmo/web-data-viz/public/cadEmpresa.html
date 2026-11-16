@@ -98,40 +98,8 @@
 
         <hr class="divisor-form">
 
-        <h2 class="titulo-secao-form">Responsável pela conta</h2>
+        
 
-        <div class="linha-campos">
-          <div class="grupo-campo campo-65">
-            <label for="inp_nome" class="campo">Nome completo *</label>
-            <input type="text" id="inp_nome" placeholder="Como você se chama?"class="digitar">
-          </div>
-          <div class="grupo-campo campo-35">
-            <label for="inp_telefone" class="campo">Telefone *</label>
-            <input type="text" id="inp_telefone" placeholder="(00) 00000-0000"class="digitar">
-          </div>
-        </div>
-
-        <div class="grupo-campo">
-          <label for="inp_email_cad" class="campo">E-mail corporativo *</label>
-          <input type="text" id="inp_email_cad" placeholder="voce@empresa.com.br"class="digitar">
-        </div>
-
-        <div class="linha-campos">
-          <div class="grupo-campo campo-50">
-            <label for="inp_senha_cad" class="campo">Senha *</label>
-            <input type="password" id="inp_senha_cad" placeholder="Crie uma senha"class="digitar">
-          </div>
-          <div class="grupo-campo campo-50">
-            <label for="inp_conf_senha" class="campo">Confirmar senha *</label>
-            <input type="password" id="inp_conf_senha" placeholder="Repita sua senha"class="digitar">
-          </div>
-        </div>
-        <span class="dica-senha">Use pelo menos 8 caracteres, incluindo letras e números.</span>
-
-        <div class="lembrar-box">
-          <input type="checkbox" id="aceito_termos">
-          <label for="aceito_termos">Li e aceito os Termos de Uso e a Política de Privacidade.</label>
-        </div>
    
         <button onclick="cadastrar()" class="botao">Criar conta e configurar meu silo &rarr;</button>
       </div>
@@ -162,18 +130,8 @@
     let senhaVar = inp_senha_cad.value;
     let confirmacaoVar = inp_conf_senha.value;
 
-    if (cnpjVar == "" || razaoVar == "" || cidadeVar == "" || estadoVar == "" || nomeVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" || confirmacaoVar == "") {
+    if (cnpjVar == "" || razaoVar == "" || cidadeVar == "" || estadoVar == "" ) {
       alert("Preencha todos os campos obrigatórios!");
-      return false;
-    }
-
-    if (senhaVar != confirmacaoVar) {
-      alert("As senhas não coincidem!");
-      return false;
-    }
-
-    if (!aceito_termos.checked) {
-      alert("Você precisa aceitar os Termos de Uso e a Política de Privacidade.");
       return false;
     }
 
