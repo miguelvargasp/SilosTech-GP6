@@ -51,11 +51,13 @@ CREATE TABLE silo (
     idSilo INT PRIMARY KEY AUTO_INCREMENT,
     nomeSilo VARCHAR(50) NOT NULL,
     capacidadeMaximaVolume DECIMAL(12,2) NOT NULL,
-    tipoConteudo VARCHAR(50),
+    -- tipoConteudo VARCHAR(50),
     statusSilo TINYINT NOT NULL DEFAULT 1,
     -- fkLocal INT NOT NULL,
+    fkEmpresa INT NOT NULL,
 
     -- CONSTRAINT fk_silo_local FOREIGN KEY (fkLocal) REFERENCES locais(idLocal),
+    CONSTRAINT fk_silo_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
     CONSTRAINT chk_status_silo CHECK (statusSilo IN (0, 1))
 );
 
