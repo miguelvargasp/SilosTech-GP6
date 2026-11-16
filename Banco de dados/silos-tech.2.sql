@@ -4,7 +4,7 @@ USE db_silostech;
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     razaoSocial VARCHAR(100) NOT NULL,
-    nomeEmpresa VARCHAR(100) NOT NULL,
+    -- nomeEmpresa VARCHAR(100) NOT NULL,
     cnpjEmpresa CHAR(14) NOT NULL UNIQUE,
     dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     statusEmpresa TINYINT NOT NULL DEFAULT 1,
