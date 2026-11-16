@@ -53,9 +53,9 @@ CREATE TABLE silo (
     capacidadeMaximaVolume DECIMAL(12,2) NOT NULL,
     tipoConteudo VARCHAR(50),
     statusSilo TINYINT NOT NULL DEFAULT 1,
-    fkLocal INT NOT NULL,
+    -- fkLocal INT NOT NULL,
 
-    CONSTRAINT fk_silo_local FOREIGN KEY (fkLocal) REFERENCES locais(idLocal),
+    -- CONSTRAINT fk_silo_local FOREIGN KEY (fkLocal) REFERENCES locais(idLocal),
     CONSTRAINT chk_status_silo CHECK (statusSilo IN (0, 1))
 );
 
