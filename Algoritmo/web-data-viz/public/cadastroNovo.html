@@ -112,17 +112,16 @@
       // Validação dos campos
       if (nome == "" || email == "" || senha == "" || confirmarSenha == "" || telefone == "") {
         alert("Preencha todos os campos!");
-        return false;
       }
 
       else if (!email.includes('@')) {
         alert('E-mail inválido! Deve conter "@".');
-        return false;
+        
       }
 
       else if (senha != confirmarSenha) {
         alert('As senhas não coincidem!');
-        return false;
+        
       }
       else {
 
@@ -143,26 +142,23 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-              cardErro.style.display = "block";
+    
 
-              mensagem_erro.innerHTML =
-                "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+             
               setTimeout(() => {
-
+                window.location = "login.html";
               }, "2000");
 
-              limparFormulario();
-              finalizarAguardar();
+  
             } else {
               throw "Houve um erro ao tentar realizar o cadastro!";
             }
           })
           .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+    
           });
-        window.location = "login.html";
+        
         return false;
       }
 
