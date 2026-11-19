@@ -62,7 +62,6 @@ truncate table leitura;
 
 drop table leitura;
 
--- INSERTS (na ordem das dependências)
 
 INSERT INTO empresa (razaoSocial, nomeEmpresa, cnpjEmpresa) VALUES
 ('AgroSilos Armazenagem de Grãos Ltda', 'AgroSilos', '12345678000101'),
