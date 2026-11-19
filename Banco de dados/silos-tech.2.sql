@@ -12,22 +12,6 @@ CREATE TABLE empresa (
     CONSTRAINT chk_status_empresa CHECK (statusEmpresa IN (0, 1))
 );
 
---  LOCAIS (uma empresa pode ter vários locais) 
---CREATE TABLE locais (
-    -- idLocal INT PRIMARY KEY AUTO_INCREMENT,
-    -- nomeLocal VARCHAR(100) NOT NULL,
-    -- cepLocal CHAR(8),
-    -- numeroLocal VARCHAR(10),
-    -- bairroLocal VARCHAR(50),
-    -- cidadeLocal VARCHAR(50),
-    -- estadoLocal CHAR(2),
-    -- complementoLocal VARCHAR(50),
-    -- statusLocal TINYINT NOT NULL DEFAULT 1,
-    -- fkEmpresa INT,
-
-    --CONSTRAINT fk_locais_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
-    --CONSTRAINT chk_status_local CHECK (statusLocal IN (0, 1))
--- );
 
 --  CLIENTE (usuário que pertence a uma empresa) 
 CREATE TABLE usuario (
@@ -37,7 +21,7 @@ CREATE TABLE usuario (
     telefoneCliente VARCHAR(20),
     senhaCliente VARCHAR(255) NOT NULL,
     statusCliente TINYINT NOT NULL DEFAULT 1,
-    permissaoCliente TINYINT NOT NULL DEFAULT 0,   -- 0, 1 ou 2 
+    permissaoCliente TINYINT NOT NULL DEFAULT 0,   
     fkEmpresa INT,
 
     CONSTRAINT fk_cliente_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
@@ -46,7 +30,7 @@ CREATE TABLE usuario (
     CONSTRAINT chk_status_cliente CHECK (statusCliente IN (0, 1))
 );
 
---  SILO (fica em um local) 
+--  SILO  
 CREATE TABLE silo (
     idSilo INT PRIMARY KEY AUTO_INCREMENT,
     nomeSilo VARCHAR(50) NOT NULL,
@@ -77,7 +61,7 @@ drop table sensor;
 CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
     dataHoraLeitura DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    valorLeitura DECIMAL(6,2) NOT NULL,   -- definir a unidade (ex.: distância em cm, temperatura em °C)
+    valorLeitura DECIMAL(6,2) NOT NULL,  
     fkSensor INT,
 
     CONSTRAINT fk_leitura_sensor FOREIGN KEY (fkSensor) REFERENCES sensor(idSensor)
