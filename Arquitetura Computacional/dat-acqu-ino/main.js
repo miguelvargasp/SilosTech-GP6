@@ -20,7 +20,7 @@ const serial = async (
         {
             host: 'localhost',
             user: 'aluno',
-            password: 'SPTech#2024',
+            password: 'Sptech#2024',
             database: 'db_silostech',
             port: 3307
         }
@@ -69,13 +69,13 @@ const serial = async (
                 'INSERT INTO leitura (valorLeitura, fkSensor) VALUES (?, ?)',
                 [sensorDigital + 160, 2]
             );
-            console.log("valores inseridos no banco: ", sensorDigital + 20);
+            console.log("valores inseridos no banco: ", sensorDigital + 160);
 
             await poolBancoDados.execute(
                 'INSERT INTO leitura (valorLeitura, fkSensor) VALUES (?, ?)',
                 [sensorDigital + 240, 3]
             );
-            console.log("valores inseridos no banco: ", sensorDigital + 50);
+            console.log("valores inseridos no banco: ", sensorDigital + 240);
 
         }
 
