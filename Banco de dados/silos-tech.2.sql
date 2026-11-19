@@ -56,7 +56,7 @@ CREATE TABLE silo (
     -- fkLocal INT NOT NULL,
     fkEmpresa INT NOT NULL,
 
-    -- CONSTRAINT fk_silo_local FOREIGN KEY (fkLocal) REFERENCES locais(idLocal),
+    
     CONSTRAINT fk_silo_empresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
     CONSTRAINT chk_status_silo CHECK (statusSilo IN (0, 1))
 );
