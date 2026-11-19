@@ -16,8 +16,25 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
+                    if(resultadoAutenticar.length==1){
+                        console.log(resultadoAutenticar)
+                    }
+                        if(resultadoAutenticar.length>0){
+                            res.json({
+                                id:resultadoAutenticar[0].id,
+                                nome:resultadoAutenticar[0].nome,
+                                email:resultadoAutenticar[0].email,
+                                senha:resultadoAutenticar[0].senha,
+                                telefone:resultadoAutenticar[0].telefone
+                            });
+                    }
+                    else if(resultadoAutenticar.length==0){
+                        res.status(403).send("email invalido ou senha invalida")
+                    }else{
+                         res.status(403).send("mais de 1 usuario cadastrado")
+                    }
                 }
+
             ).catch(
                 function (erro) {
                     console.log(erro);
