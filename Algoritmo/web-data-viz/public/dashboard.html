@@ -10,7 +10,6 @@
 <body>
     <div class="dash-layout">
         
-        <!-- Barra Lateral Esquerda -->
         <aside class="dash-sidebar">
             <div>
                 <div class="dash-logo-area">
@@ -51,10 +50,8 @@
                 </div>
             </header>
 
-            <!-- Conteúdo do Dashboard -->
             <main class="dashboard-main">
                 
-                <!-- Título e Subtítulo -->
                 <div class="dashboard-cabecalho">
                     <div>
                         <h1 class="texto">Visão estratégica do estoque de grãos</h1>
@@ -62,7 +59,6 @@
                     </div>
                 </div>
 
-                <!-- Linha de KPIs (Seus dados e IDs exatos) -->
                 <section class="kpis-topo" aria-label="Indicadores principais">
                     <article class="kpi-card kpi-total">
                         <div class="kpi-topo">
@@ -90,7 +86,6 @@
                     </article>
                 </section>
 
-                <!-- Bloco do Meio: Gráfico na Esquerda + Card Verde Escuro de Alerta na Direita -->
                 <section class="dash-meio-grid" id="grafico">
                     
                     <div class="painel-grafico">
@@ -111,7 +106,6 @@
                         </div>
                     </div>
 
-                    <!-- Card Verde Escuro (Média mínima / Alerta) -->
                     <div class="card-status-escuro">
                         <div>
                             <h3>Média mínima · 12 dias</h3>
@@ -130,7 +124,6 @@
 
                 </section>
 
-                <!-- Bloco Inferior: Resumo do Silo em formato de tabela limpa igual ao protótipo -->
                 <section class="resumo-silo-tabela" id="silos">
                     <div class="tabela-cabecalho">
                         <h2>Silo monitorado</h2>
@@ -164,7 +157,6 @@
     </div>
 
     <script>
-        // Parâmetros de negócio mantidos 100% iguais ao original
         const CAPACIDADE_MAX_SILO_TON = 2000;
         const PRECO_TONELADA_SOJA = 2150.00;
         const percentualAtual = 71;
