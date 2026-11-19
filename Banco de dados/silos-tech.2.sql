@@ -99,12 +99,6 @@ INSERT INTO empresa (razaoSocial, nomeEmpresa, cnpjEmpresa) VALUES
 ('Grãos do Brasil Armazenagem Ltda', 'Grãos do Brasil', '34567890000303'),
 ('AgroStorage Soluções Agrícolas Ltda', 'AgroStorage', '45678901000404');
 
-INSERT INTO locais (nomeLocal, cepLocal, numeroLocal, bairroLocal, cidadeLocal, estadoLocal, complementoLocal, fkEmpresa) VALUES
-('Unidade Sorriso I', '78890000', '450', 'Zona Rural', 'Sorriso', 'MT', 'Próximo ao silo de soja', 1),
-('Unidade Sorriso II', '78890000', '500', 'Zona Rural', 'Sorriso', 'MT', NULL, 1),
-('Unidade Rondonópolis', '78745000', '1200', 'Distrito Industrial', 'Rondonópolis', 'MT', 'Unidade de armazenagem', 2),
-('Unidade Rio Verde', '75901000', '850', 'Setor Industrial', 'Rio Verde', 'GO', 'Armazém de soja', 3),
-('Unidade Itumbiara', '75503000', '680', 'Zona Rural', 'Itumbiara', 'GO', 'Unidade de silos', 4);
 
 INSERT INTO usuario (nomeCliente, emailCliente, telefoneCliente, senhaCliente, statusCliente, permissaoCliente, fkEmpresa) VALUES
 ('Carlos Silva', 'carlos.silva@email.com', '(11) 98765-4321', '$2y$10$eImiTXuWVxfM37uY4JANjOL.oMQPQOxhH5f5v4d5e6f7g8h9i0j1k', 1, 2, 1),
