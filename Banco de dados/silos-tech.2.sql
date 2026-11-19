@@ -51,9 +51,9 @@ CREATE TABLE silo (
     idSilo INT PRIMARY KEY AUTO_INCREMENT,
     nomeSilo VARCHAR(50) NOT NULL,
     capacidadeMaximaVolume DECIMAL(12,2) NOT NULL,
-    -- tipoConteudo VARCHAR(50),
+    
     statusSilo TINYINT NOT NULL DEFAULT 1,
-    -- fkLocal INT NOT NULL,
+    
     fkEmpresa INT NOT NULL,
 
     
