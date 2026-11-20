@@ -69,16 +69,6 @@
 
         <div class="linha-campos">
           <div class="grupo-campo campo-50">
-            <label for="sel_grao" class="campo">Tipo de grão *</label>
-            <select id="sel_grao">
-              <option value="">Selecione o grão</option>
-              <option value="Soja">Soja</option>
-              <option value="Milho">Milho</option>
-              <option value="Trigo">Trigo</option>
-              <option value="Café">Café</option>
-            </select>
-          </div>
-          <div class="grupo-campo campo-50">
             <label for="inp_capacidade" class="campo">Capacidade total (t) *</label>
             <input type="text" id="inp_capacidade" placeholder="Ex.: 500" class="digitar">
           </div>
@@ -132,7 +122,6 @@
 <script>
   function salvarSilo() {
     let nomeSilo = inp_nome_silo.value;
-    let tipoGrao = sel_grao.value;
     let capacidade = inp_capacidade.value;
     let altura = inp_altura.value;
 
@@ -142,6 +131,6 @@
     }
 
     alert("Silo configurado com sucesso! Abrindo o painel...");
-    window.location.href = "index.html";
+    window.location.href = "dashboard2.html";
   }
 </script>
